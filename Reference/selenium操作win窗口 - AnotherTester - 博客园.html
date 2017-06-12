@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://www.cnblogs.com/songdefei/p/4776529.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>selenium操作win窗口 - AnotherTester - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./selenium操作win窗口 - AnotherTester - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./selenium操作win窗口 - AnotherTester - 博客园_files/bundle-LessIsMore.css">
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="./selenium操作win窗口 - AnotherTester - 博客园_files/bundle-LessIsMore-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/songdefei/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/songdefei/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/songdefei/wlwmanifest.xml">
+<script async="" src="./selenium操作win窗口 - AnotherTester - 博客园_files/analytics.js.下载"></script><script src="./selenium操作win窗口 - AnotherTester - 博客园_files/jquery.js.下载" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'songdefei', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./selenium操作win窗口 - AnotherTester - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/songdefei/">AnotherTester</a></div>
+<div class="subtitle"></div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/songdefei/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/AnotherTester">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/songdefei/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/songdefei/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-2&nbsp;
+文章-0&nbsp;
+评论-0&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/songdefei/p/4776529.html">selenium操作win窗口</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p>&nbsp;</p>
+<p>最近测试的项目中涉及到上传文件的功能，自动化脚本中需要使用python win32模块来操控，记录下使用心得吧！</p>
+<p>1.首先引入python win32gui模块</p>
+<p>import win32gui</p>
+<p>2.安装spyxx.exe，用于定位win窗口</p>
+<p>准备工作做好了，开工吧</p>
+<p>3.点击类似“上传”等按钮后会弹出win窗口，那就先定位它吧，如下</p>
+<p><img src="./selenium操作win窗口 - AnotherTester - 博客园_files/745016-20150901181831075-2095323002.png" alt=""></p>
+<p>&nbsp;</p>
+<p>定位代码如下：</p>
+<p>uploadwindowname = u'打开' #CHROME窗口名称是打开<br>	uploadwindow = win32gui.FindWindow('#32770', uploadwindowname)#定位“文件上传 窗口<br>	print uploadwindow&nbsp;</p>
+<p>最后输出，如果输出0说明定位失败了<br><br></p>
+<p>parent=win32gui.FindWindowEx(uploadwindow,None,'ComboBoxEx32',None)<br>	Combobox_real=win32gui.FindWindowEx(parent,None,'ComboBox',None)<br>	Edit_box=win32gui.FindWindowEx(Combobox_real,None,'Edit',None)</p>
+<p>这段代码是先定位到最上层的父窗口，再逐层定位到输入框（chrome于FF有所不同，FF下可以直接定位）</p>
+<p>&nbsp;</p>
+<p>win32gui.SetForegroundWindow(Edit_box)<br>	time.sleep(1)<br>	win32gui.SendMessage(Edit_box,win32con.WM_SETTEXT,None,r'C:\Users\gmsd12\Desktop\BLAT_blacklist.xls')<br>	openbuttonname = u'打开(&amp;O)'<br>	time.sleep(1)<br>	openbutton = win32gui.FindWindowEx(uploadwindow, None,"Button",openbuttonname)#定位“保存”按钮<br>	print openbutton<br>	win32gui.PostMessage(openbutton, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, 0)<br>	win32gui.PostMessage(openbutton, win32con.WM_LBUTTONUP, win32con.MK_LBUTTON, 0)</p>
+<p>这段代码是把输入框置顶，否则无法输入，输入文件路径后，定位到打开按钮，保存按钮，最后回车键按下再松开。</p>
+<p>至此完成了上传文件时操作win窗口，其中FF下和Chrome下窗口名称有所不同（当时还被折磨了好久才发现(⊙﹏⊙)），IE的暂时没有试过。</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(4776529,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;6d40c95d-24e3-e411-b908-9dcfd8948a71&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./selenium操作win窗口 - AnotherTester - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./selenium操作win窗口 - AnotherTester - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/songdefei/" target="_blank"><img src="./selenium操作win窗口 - AnotherTester - 博客园_files/sample_face.gif" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/songdefei/">AnotherTester</a><br>
+            <a href="http://home.cnblogs.com/u/songdefei/followees">关注 - 0</a><br>
+            <a href="http://home.cnblogs.com/u/songdefei/followers">粉丝 - 0</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;6d40c95d-24e3-e411-b908-9dcfd8948a71&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(4776529,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(4776529,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/songdefei/p/4776561.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/songdefei/p/4776561.html" title="发布于2015-09-01 18:39">selenium定位frame</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2015-09-01 18:27</span> <a href="http://www.cnblogs.com/songdefei/">AnotherTester</a> 阅读(<span id="post_view_count">654</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=4776529" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/songdefei/p/4776529.html#" onclick="AddToWz(4776529);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=223294,cb_entryId=4776529,cb_blogApp=currentBlogApp,cb_blogUserGuid='6d40c95d-24e3-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2015/9/1 18:27:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/songdefei/p/4776529.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/songdefei/p/4776529.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://wijmo.gcpowertools.com.cn/?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=wijmo&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./selenium操作win窗口 - AnotherTester - 博客园_files/24442-20170531232714852-1660032846.gif" alt="huozige"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/571309/" target="_blank">倪光南炮轰Windows 10政府版没过审查 微软合作方回应</a><br> ·  <a href="http://news.cnblogs.com/n/571308/" target="_blank">阿里宣布淘宝、天猫会员体系统一！“淘气值”将作为衡量标准</a><br> ·  <a href="http://news.cnblogs.com/n/571307/" target="_blank">恶劣天气航班何时恢复竟靠人来算！阿里云联手厦航解决</a><br> ·  <a href="http://news.cnblogs.com/n/571306/" target="_blank">芝麻分700+免流水办日本5年签证停止服务：赔偿用户500元</a><br> ·  <a href="http://news.cnblogs.com/n/571305/" target="_blank">本田无人驾驶车进程首度曝光 2025年完全自驾</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="https://www.mtyun.com/activity-anniversary?site=cnblogs&amp;campaign=20170601sales" target="_blank"><img width="468" height="60" src="./selenium操作win窗口 - AnotherTester - 博客园_files/24442-20170608095106606-2028001864.png" alt="美团云"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/570194/" target="_blank">小printf的故事：真正的程序员？</a><br> ·  <a href="http://kb.cnblogs.com/page/569992/" target="_blank">程序员的工作、学习与绩效</a><br> ·  <a href="http://kb.cnblogs.com/page/569056/" target="_blank">软件开发为什么很难</a><br> ·  <a href="http://kb.cnblogs.com/page/565901/" target="_blank">唱吧DevOps的落地，微服务CI/CD的范本技术解读</a><br> ·  <a href="http://kb.cnblogs.com/page/566523/" target="_blank">程序员，如何从平庸走向理想？</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/songdefei/">AnotherTester</a><br>园龄：<a href="http://home.cnblogs.com/u/songdefei/" title="入园时间：2015-04-15">2年1个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/songdefei/followers/">0</a><br>关注：<a href="http://home.cnblogs.com/u/songdefei/followees/">0</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;6d40c95d-24e3-e411-b908-9dcfd8948a71&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/05/01&#39;);return false;">&lt;</a></td><td align="center">2017年6月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/07/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td align="center">2</td><td class="CalWeekendDay" align="center">3</td></tr><tr><td class="CalWeekendDay" align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td class="CalTodayDay" align="center">10</td></tr><tr><td class="CalWeekendDay" align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td class="CalWeekendDay" align="center">17</td></tr><tr><td class="CalWeekendDay" align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td class="CalWeekendDay" align="center">24</td></tr><tr><td class="CalWeekendDay" align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td class="CalOtherMonthDay" align="center">1</td></tr><tr><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/songdefei/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/songdefei/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/songdefei/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/songdefei/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/songdefei/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/songdefei/category/730338.html">python+selenium自动化测试</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/songdefei/archive/2015/09.html">2015年9月 (2)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap" style="display: none;">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+	<div id="RecentCommentsBlock"></div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/songdefei/p/4776561.html">1. selenium定位frame(869)</a></li><li><a href="http://www.cnblogs.com/songdefei/p/4776529.html">2. selenium操作win窗口(655)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap" style="display: none;">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap" style="display: none;">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2017 AnotherTester
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>

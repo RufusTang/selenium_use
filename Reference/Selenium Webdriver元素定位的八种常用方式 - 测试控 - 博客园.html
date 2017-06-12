@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://www.cnblogs.com/qingchunjun/p/4208159.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/bundle-KJC.css">
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/bundle-KJC-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/qingchunjun/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/qingchunjun/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/qingchunjun/wlwmanifest.xml">
+<script async="" src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/encoder.js.下载"></script><script src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/jquery.js.下载" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'qingchunjun', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<table class="Framework" cellspacing="0" cellpadding="0" width="100%">
+	<tbody><tr>
+		<td colspan="3">
+			
+<div id="top">
+<table cellpadding="10" cellspacing="0">
+	<tbody><tr>
+		<td nowrap="">
+			<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/qingchunjun/">探索测试的深度，体验测试的乐趣</a></h1>
+			我的测试人生
+		</td>
+	</tr>
+</tbody></table>
+</div>
+<div id="sub">
+	<div id="sub-right"><div id="blog_stats">
+<div class="BlogStats">posts - 2, comments - 4, trackbacks - 0, articles - 0</div></div></div>
+	
+&nbsp;
+<a id="blog_nav_sitehome" href="http://www.cnblogs.com/">博客园</a>&nbsp;:: 
+<a id="blog_nav_myhome" href="http://www.cnblogs.com/qingchunjun/">首页</a>&nbsp;::
+<a id="blog_nav_newpost" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a>&nbsp;::
+<a id="blog_nav_contact" accesskey="9" rel="nofollow" href="https://msg.cnblogs.com/send/%E6%B5%8B%E8%AF%95%E6%8E%A7">联系</a>&nbsp;::
+<a id="blog_nav_rss" href="http://www.cnblogs.com/qingchunjun/rss">订阅</a>
+<a id="blog_nav_rss_image" class="XMLLink" href="http://www.cnblogs.com/qingchunjun/rss"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/xml.gif" alt="订阅"></a>&nbsp;::
+<a id="blog_nav_admin" rel="nofollow" href="https://i.cnblogs.com/">管理</a>
+
+</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="LeftCell">
+			<div id="leftmenu">
+            	
+		            <div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/05/01&#39;);return false;">&lt;</a></td><td align="center">2017年6月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/07/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td align="center">2</td><td class="CalWeekendDay" align="center">3</td></tr><tr><td class="CalWeekendDay" align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td class="CalTodayDay" align="center">10</td></tr><tr><td class="CalWeekendDay" align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td class="CalWeekendDay" align="center">17</td></tr><tr><td class="CalWeekendDay" align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td class="CalWeekendDay" align="center">24</td></tr><tr><td class="CalWeekendDay" align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td class="CalOtherMonthDay" align="center">1</td></tr><tr><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+		            
+<div id="cell">
+<img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>公告</h3>
+<div id="news">
+	<div id="blog-news">十年软件测试经验，三年测试项目和团队管理经验，非典型性程序员。注重测试理论体系的研究和测试实际项目的结合。目前专注于移动平台的测试(自动化、安全、性能)。同时也对python和android较感兴趣，希望和大家一起交流学习。
+欢迎关注我的新浪微博@pure0927<div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/qingchunjun/">测试控</a><br>园龄：<a href="http://home.cnblogs.com/u/qingchunjun/" title="入园时间：2007-03-29">10年2个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/qingchunjun/followers/">42</a><br>关注：<a href="http://home.cnblogs.com/u/qingchunjun/followees/">0</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;8b6f3d0b-63cf-dd11-9e4d-001cf0cd104b&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+</div>
+
+	            
+	            <div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="cell">
+<img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2">
+<h3 class="catListTitle">搜索</h3>
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div></div><div id="sidebar_shortcut" class="sidebar-block">
+<div id="cell">
+<img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2">
+<h3>常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/qingchunjun/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/qingchunjun/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/qingchunjun/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/qingchunjun/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/qingchunjun/tag/" title="我的博客的标签列表">我的标签</a></li>
+<li><a id="itemListLink" onclick="this.blur();WarpClass(&#39;itemListLink&#39;, &#39;itemListLin_con&#39;);return false;" href="http://www.cnblogs.com/qingchunjun/p/4208159.html#">更多链接</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<div id="cell">
+<img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2">
+<h3>我的标签</h3>
+<div id="MyTag">
+<ul>
+<li><a href="http://www.cnblogs.com/qingchunjun/tag/selenium%20webdriver%20%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D/">selenium webdriver 元素定位</a>(1)</li>
+</ul>
+</div>
+</div></div><div id="sidebar_categories">
+		<div id="cell">
+		<img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>随笔分类</h3>
+		
+				<ul>
+			
+				<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/qingchunjun/category/647460.html">安全性测试</a>
+				</li>
+			
+				<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/qingchunjun/category/647459.html">测试职业发展</a>
+				</li>
+			
+				<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/qingchunjun/category/647461.html">性能测试</a>
+				</li>
+			
+				<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/qingchunjun/category/647457.html">自动化测试工具研究(1)</a>
+				</li>
+			
+				<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/qingchunjun/category/647458.html">自动化测试理论</a>
+				</li>
+			
+				</ul>
+			</div>
+	
+		<div id="cell">
+		<img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>随笔档案</h3>
+		
+				<ul>
+			
+				<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/qingchunjun/archive/2015/01.html">2015年1月 (2)</a>
+				</li>
+			
+				</ul>
+			</div>
+	</div><div id="sidebar_scorerank" class="sidebar-block">
+<div id="cell">
+<img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>积分与排名</h3>
+<ul>
+	<li>
+		积分 -
+		3398
+	</li><li>
+		排名 -
+		51743
+	</li>
+</ul>
+</div>
+</div><div id="recent_comments_wrap">
+    <div id="cell">
+        <img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2">
+        <h3>最新评论</h3>
+        <div class="RecentComment">
+            <div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/qingchunjun/p/4208159.html#3500417">1. Re:Selenium Webdriver元素定位的八种常用方式</a></li>
+        <li class="recent_comment_body">谢谢 学习了</li>
+        <li class="recent_comment_author">--尘世漂泊的旅人</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/qingchunjun/p/4208159.html#3468989">2. Re:Selenium Webdriver元素定位的八种常用方式</a></li>
+        <li class="recent_comment_body">写的真好  如果有更多的例子就更好了</li>
+        <li class="recent_comment_author">--心境心静</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/qingchunjun/p/4208159.html#3377474">3. Re:Selenium Webdriver元素定位的八种常用方式</a></li>
+        <li class="recent_comment_body">class属性值的“复合样式，原来可以这样定位</li>
+        <li class="recent_comment_author">--小猪快跑跑</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/qingchunjun/p/4208159.html#3327578">4. Re:Selenium Webdriver元素定位的八种常用方式</a></li>
+        <li class="recent_comment_body">写得非常详细，尤其是xpath</li>
+        <li class="recent_comment_author">--坏脾气</li>
+</ul>
+</div>
+        </div>
+    </div>
+</div>
+<div id="topview_posts_wrap">
+    <div id="cell">
+        <img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2">
+        <h3>阅读排行榜</h3>
+        <div class="RecentComment">
+            <div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/qingchunjun/p/4208159.html">1. Selenium Webdriver元素定位的八种常用方式(88661)</a></li><li><a href="http://www.cnblogs.com/qingchunjun/p/4212305.html">2. 将博客搬至CSDN(206)</a></li></ul></div>
+        </div>
+    </div>
+</div><div id="topfeedback_posts_wrap">
+    <div id="cell">
+        <img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2">
+        <h3>评论排行榜</h3>
+        <div class="RecentComment">
+            <div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/qingchunjun/p/4208159.html">1. Selenium Webdriver元素定位的八种常用方式(4)</a></li></ul></div>
+        </div>
+    </div>    
+</div>
+<div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div id="cell">
+<img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/qingchunjun/p/4208159.html">1. Selenium Webdriver元素定位的八种常用方式(10)</a></li></ul></div>
+</div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+		</td>
+		<td class="MainCell">
+			<div id="main">
+				
+<div id="post_detail">
+	<div class="post">
+		<div class="posthead">
+			<h2>
+				<a id="cb_post_title_url" class="singleposttitle" href="http://www.cnblogs.com/qingchunjun/p/4208159.html">Selenium Webdriver元素定位的八种常用方式</a>
+			</h2>
+ 			Posted on <span id="post-date">2015-01-07 13:00</span> <a href="http://www.cnblogs.com/qingchunjun/">测试控</a> 阅读(<span id="post_view_count">88661</span>) 评论(<span id="post_comment_count">4</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=4208159" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/qingchunjun/p/4208159.html#" onclick="AddToWz(4208159);return false;">收藏</a>
+			<script type="text/javascript">var allowComments=true,cb_blogId=25447,cb_entryId=4208159,cb_blogApp=currentBlogApp,cb_blogUserGuid='8b6f3d0b-63cf-dd11-9e4d-001cf0cd104b',cb_entryCreatedDate='2015/1/7 13:00:00';loadViewCount(cb_entryId);</script>
+			
+		</div>
+		<div class="postbody"><div id="cnblogs_post_body"><p><span style="color: #ff0000;"><strong>楼主原创，欢迎学习和交流，码字不容易，转载请注明出处，谢谢。</strong></span></p>
+<p>在使用selenium webdriver进行元素定位时，通常使用findElement或findElements方法结合By类返回的元素句柄来定位元素。其中By类的常用定位方式共八种，现分别介绍如下。</p>
+<p><strong>1. By.name()</strong></p>
+<p align="left">假设我们要测试的页面源码如下：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">button </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="gbqfba"</span><span style="color: #ff0000;"> aria-label</span><span style="color: #0000ff;">="Google Search"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="btnK"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="gbqfba"</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">span </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="gbqfsa"</span><span style="color: #0000ff;">&gt;</span>Google Search<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">span</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">button</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>当我们要用name属性来引用这个button并点击它时，代码如下：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show(&#39;97937b05-0afe-48b2-89ae-ef6e54faf421&#39;)"><img id="code_img_closed_97937b05-0afe-48b2-89ae-ef6e54faf421" class="code_img_closed" src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/ContractedBlock.gif" alt="" style="display: none;"><img id="code_img_opened_97937b05-0afe-48b2-89ae-ef6e54faf421" class="code_img_opened" style="" onclick="cnblogs_code_hide(&#39;97937b05-0afe-48b2-89ae-ef6e54faf421&#39;,event)" src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_97937b05-0afe-48b2-89ae-ef6e54faf421" class="cnblogs_code_hide" style="display: block;"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;">1</span> <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> SearchButtonByName {
+</span><span style="color: #008080;">2</span>         <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String[] args){
+</span><span style="color: #008080;">3</span>                WebDriver driver = <span style="color: #0000ff;">new</span><span style="color: #000000;"> FirefoxDriver();
+</span><span style="color: #008080;">4</span>                driver.get("http://www.forexample.com"<span style="color: #000000;">);
+</span><span style="color: #008080;">5</span>                WebElement searchBox = driver.findElement(By.name("btnK"<span style="color: #000000;">));
+</span><span style="color: #008080;">6</span> <span style="color: #000000;">               searchBox.click();
+</span><span style="color: #008080;">7</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">8</span> }</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<span class="cnblogs_code_collapse" style="display: none;">View Code</span></div>
+<p>&nbsp;</p>
+<p><strong>2. By.id()</strong></p>
+<p>页面源码如下：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">button </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="gbqfba"</span><span style="color: #ff0000;"> aria-label</span><span style="color: #0000ff;">="Google Search"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="btnK"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="gbqfba"</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">span </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="gbqfsa"</span><span style="color: #0000ff;">&gt;</span>Google Search<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">span</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">button</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>要引用该button并点击它时，代码如下：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> SearchButtonById {
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span>         <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String[] args){
+</span><span style="color: #008080;"> 4</span> 
+<span style="color: #008080;"> 5</span>             WebDriver driver = <span style="color: #0000ff;">new</span><span style="color: #000000;"> FirefoxDriver();
+</span><span style="color: #008080;"> 6</span> 
+<span style="color: #008080;"> 7</span>             driver.get("http://www.forexample.com"<span style="color: #000000;">);
+</span><span style="color: #008080;"> 8</span> 
+<span style="color: #008080;"> 9</span>             WebElement searchBox = driver.findElement(By.id("gbqfba"<span style="color: #000000;">));
+</span><span style="color: #008080;">10</span> 
+<span style="color: #008080;">11</span> <span style="color: #000000;">            searchBox.click();
+</span><span style="color: #008080;">12</span> 
+<span style="color: #008080;">13</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">14</span> 
+<span style="color: #008080;">15</span> }</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><strong>3. By.tagName()</strong></p>
+<p>该方法可以通过元素的标签名称来查找元素。该方法跟之前两个方法的区别是，这个方法搜索到的元素通常不止一个，所以一般建议结合使用findElements方法来使用。比如我们现在要查找页面上有多少个button，就可以用button这个tagName来进行查找，代码如下：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> SearchPageByTagName{
+
+     </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String[] args){
+
+            WebDriver driver </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> FirefoxDriver();
+            driver.get(</span>"http://www.forexample.com"<span style="color: #000000;">);
+            List</span>&lt;WebElement&gt; buttons = driver.findElements(By.tagName("button"<span style="color: #000000;">));
+
+            System.out.println(buttons.size());  </span><span style="color: #008000;">//</span><span style="color: #008000;">打印出button的个数</span>
+<span style="color: #000000;">
+    }
+
+}                    </span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>另外，在使用tagName方法进行定位时，还有一个地方需要注意的是，通常有些HTML元素的tagName是相同的，如下图(1)所示。</p>
+<p align="center"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/071240598754757.jpg" alt="">&nbsp;</p>
+<p align="center">图（1）</p>
+<p>&nbsp;</p>
+<p>从图中我们可以看到，单选框、复选框、文本框和密码框的元素标签都是input，此时单靠tagName无法准确地得到我们想要的元素，需要结合type属性才能过滤出我们要的元素。示例代码如下：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> SearchElementsByTagName{
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span>         <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String[] args){
+</span><span style="color: #008080;"> 4</span> 
+<span style="color: #008080;"> 5</span>             WebDriver driver = <span style="color: #0000ff;">new</span><span style="color: #000000;"> FirefoxDriver();
+</span><span style="color: #008080;"> 6</span> 
+<span style="color: #008080;"> 7</span>             driver.get("http://www.forexample.com"<span style="color: #000000;">);
+</span><span style="color: #008080;"> 8</span> 
+<span style="color: #008080;"> 9</span>             List&lt;WebElement&gt; allInputs = driver.findElements(By.tagName("input"<span style="color: #000000;">));
+</span><span style="color: #008080;">10</span> 
+<span style="color: #008080;">11</span>             <span style="color: #008000;">//</span><span style="color: #008000;">只打印所有文本框的值</span>
+<span style="color: #008080;">12</span> 
+<span style="color: #008080;">13</span>             <span style="color: #0000ff;">for</span><span style="color: #000000;">(WebElement e: allInputs){
+</span><span style="color: #008080;">14</span> 
+<span style="color: #008080;">15</span>                   <span style="color: #0000ff;">if</span><span style="color: #000000;"> (e.getAttribute(“type”).equals(“text”)){
+</span><span style="color: #008080;">16</span> 
+<span style="color: #008080;">17</span>                   System.out.println(e.getText().toString());  <span style="color: #008000;">//</span><span style="color: #008000;">打印出每个文本框里的值</span>
+<span style="color: #008080;">18</span> 
+<span style="color: #008080;">19</span> <span style="color: #000000;">                  }
+</span><span style="color: #008080;">20</span> 
+<span style="color: #008080;">21</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;">22</span> 
+<span style="color: #008080;">23</span> <span style="color: #000000;">       }
+</span><span style="color: #008080;">24</span> 
+<span style="color: #008080;">25</span> }</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><strong>4. By.className()</strong></p>
+<p>className属性是利用元素的css样式表所引用的伪类名称来进行元素查找的方法。对于任何HTML页面的元素来说，一般程序员或页面设计师会给元素直接赋予一个样式属性或者利用css文件里的伪类来定义元素样式，使元素在页面上显示时能够更加美观。一般css样式表可能会长成下面这个样子：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> <span style="color: #800000;">.buttonStyle</span>{
+<span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span> <span style="color: #ff0000;">    width</span>:<span style="color: #0000ff;"> 50px</span>;
+<span style="color: #008080;"> 4</span> 
+<span style="color: #008080;"> 5</span> <span style="color: #ff0000;">    height</span>:<span style="color: #0000ff;"> 50px</span>;
+<span style="color: #008080;"> 6</span> 
+<span style="color: #008080;"> 7</span> <span style="color: #ff0000;">    border-radius</span>:<span style="color: #0000ff;"> 50%</span>;
+<span style="color: #008080;"> 8</span> 
+<span style="color: #008080;"> 9</span> <span style="color: #ff0000;">    margin</span>:<span style="color: #0000ff;"> 0% 2%</span>;
+<span style="color: #008080;">10</span> 
+<span style="color: #008080;">11</span> }</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>定义好后，就可以在页面元素中引用上述定义好的样式，如下：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">button </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="sampleBtnName"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="sampleBtnId"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="buttonStyle"</span><span style="color: #0000ff;">&gt;</span>I'm Button<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">button</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>如果此时我们要通过className属性来查找该button并操作它的话，就可以使用className属性了，代码如下：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> SearchElementsByClassName{
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String[] args){
+</span><span style="color: #008080;"> 4</span> 
+<span style="color: #008080;"> 5</span>         WebDriver driver = <span style="color: #0000ff;">new</span><span style="color: #000000;"> FirefoxDriver();
+</span><span style="color: #008080;"> 6</span> 
+<span style="color: #008080;"> 7</span>         driver.get("http://www.forexample.com"<span style="color: #000000;">);
+</span><span style="color: #008080;"> 8</span> 
+<span style="color: #008080;"> 9</span>         WebElement searchBox =  driver.findElement(By.className("buttonStyle"<span style="color: #000000;">));
+</span><span style="color: #008080;">10</span> 
+<span style="color: #008080;">11</span>         searchBox.sendKeys("Hello, world"<span style="color: #000000;">);
+</span><span style="color: #008080;">12</span> 
+<span style="color: #008080;">13</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">14</span> 
+<span style="color: #008080;">15</span> }</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>注意：使用className来进行元素定位时，有时会碰到一个元素指定了若干个class属性值的“复合样式”的情况，如下面这个button：&lt;button id="J_sidebar_login" class="btn btn_big btn_submit" type="submit"&gt;登录&lt;/button&gt;。这个button元素指定了三个不同的css伪类名作为它的样式属性值，此时就必须结合后面要介绍的cssSelector方法来定位了，稍后会有详细例子。</p>
+<p>&nbsp;</p>
+<p><strong>5. By.linkText()</strong></p>
+<p>这个方法比较直接，即通过超文本链接上的文字信息来定位元素，这种方式一般专门用于定位页面上的超文本链接。通常一个超文本链接会长成这个样子：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="/intl/en/about.html"</span><span style="color: #0000ff;">&gt;</span>About Google<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>我们定位这个元素时，可以使用下面的代码进行操作：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> SearchElementsByLinkText{
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String[] args){
+</span><span style="color: #008080;"> 4</span> 
+<span style="color: #008080;"> 5</span>         WebDriver driver = <span style="color: #0000ff;">new</span><span style="color: #000000;"> FirefoxDriver();
+</span><span style="color: #008080;"> 6</span> 
+<span style="color: #008080;"> 7</span>         driver.get("http://www.forexample.com"<span style="color: #000000;">);
+</span><span style="color: #008080;"> 8</span> 
+<span style="color: #008080;"> 9</span>         WebElement aboutLink = driver.findElement(By.linkText("About Google"<span style="color: #000000;">));
+</span><span style="color: #008080;">10</span> 
+<span style="color: #008080;">11</span> <span style="color: #000000;">        aboutLink.click();
+</span><span style="color: #008080;">12</span> 
+<span style="color: #008080;">13</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">14</span> 
+<span style="color: #008080;">15</span> }</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><strong>6. By.partialLinkText()</strong></p>
+<p>这个方法是上一个方法的扩展。当你不能准确知道超链接上的文本信息或者只想通过一些关键字进行匹配时，可以使用这个方法来通过部分链接文字进行匹配。代码如下：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> SearchElementsByPartialLinkText{
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String[] args){
+</span><span style="color: #008080;"> 4</span> 
+<span style="color: #008080;"> 5</span>         WebDriver driver = <span style="color: #0000ff;">new</span><span style="color: #000000;"> FirefoxDriver();
+</span><span style="color: #008080;"> 6</span> 
+<span style="color: #008080;"> 7</span>         driver.get("http://www.forexample.com"<span style="color: #000000;">);
+</span><span style="color: #008080;"> 8</span> 
+<span style="color: #008080;"> 9</span>         WebElement aboutLink = driver.findElement(By.partialLinkText("About"<span style="color: #000000;">));
+</span><span style="color: #008080;">10</span> 
+<span style="color: #008080;">11</span> <span style="color: #000000;">        aboutLink.click();
+</span><span style="color: #008080;">12</span> 
+<span style="color: #008080;">13</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">14</span> 
+<span style="color: #008080;">15</span> }</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>注意：使用这种方法进行定位时，可能会引起的问题是，当你的页面中不止一个超链接包含About时，findElement方法只会返回第一个查找到的元素，而不会返回所有符合条件的元素。如果你要想获得所有符合条件的元素，还是只能使用findElements方法。</p>
+<p>&nbsp;</p>
+<p><strong>7. By.xpath()</strong></p>
+<p>这个方法是非常强大的元素查找方式，使用这种方法几乎可以定位到页面上的任意元素。在正式开始使用XPath进行定位前，我们先了解下什么是XPath。XPath是XML Path的简称，由于HTML文档本身就是一个标准的XML页面，所以我们可以使用XPath的语法来定位页面元素。</p>
+<p>假设我们现在以图(2)所示HTML代码为例，要引用对应的对象，XPath语法如下：</p>
+<p align="center"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/071252375469380.jpg" alt="">&nbsp;</p>
+<p align="center">图（2）</p>
+<p>绝对路径写法(只有一种)，写法如下：</p>
+<p>引用页面上的form元素(即源码中的第3行)：/html/body/form[1]</p>
+<p>注意：1. 元素的xpath绝对路径可通过firebug直接查询。2. 一般不推荐使用绝对路径的写法，因为一旦页面结构发生变化，该路径也随之失效，必须重新写。3. <strong>绝对路径以单/号表示，而下面要讲的相对路径则以//表示，这个区别非常重要。另外需要多说一句的是，当xpath的路径以/开头时，表示让Xpath解析引擎从文档的根节点开始解析。当xpath路径以//开头时，则表示让xpath引擎从文档的任意符合的元素节点开始进行解析。而当/出现在xpath路径中时，则表示寻找父节点的直接子节点，当//出现在xpath路径中时，表示寻找父节点下任意符合条件的子节点，不管嵌套了多少层级（这些下面都有例子，大家可以参照来试验）。弄清这个原则，就可以理解其实xpath的路径可以绝对路径和相对路径混合在一起来进行表示，想怎么玩就怎么玩</strong>。</p>
+<p>&nbsp;</p>
+<p>下面是相对路径的引用写法：</p>
+<p>查找页面根元素：//</p>
+<p>查找页面上所有的input元素：//input</p>
+<p>查找页面上第一个form元素内的直接子input元素(即只包括form元素的下一级input元素，使用绝对路径表示，单/号)：//form[1]/input</p>
+<p>查找页面上第一个form元素内的所有子input元素(只要在form元素内的input都算，不管还嵌套了多少个其他标签，使用相对路径表示，双//号)：//form[1]//input</p>
+<p>查找页面上第一个form元素：//form[1]</p>
+<p>查找页面上id为loginForm的form元素：//form[@id='loginForm']</p>
+<p>查找页面上具有name属性为username的input元素：//input[@name='username']</p>
+<p>查找页面上id为loginForm的form元素下的第一个input元素：//form[@id='loginForm']/input[1]</p>
+<p>查找页面具有name属性为contiune并且type属性为button的input元素：//input[@name='continue'][@type='button']</p>
+<p>查找页面上id为loginForm的form元素下第4个input元素：//form[@id='loginForm']/input[4]</p>
+<p>Xpath功能很强大，所以也可以写得更加复杂一些，如下面图（3）的HTML源码。</p>
+<p align="center"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/071253211871849.jpg" alt="" width="760" height="206">&nbsp;</p>
+<p align="center">图（3）</p>
+<p>如果我们现在要引用id为“J_password”的input元素，该怎么写呢？我们可以像下面这样写：</p>
+<div class="cnblogs_code">
+<pre>WebElement password = driver.findElement(By.xpath("//*[@id='J_login_form']/dl/dt/input[@id='J_password']"));</pre>
+</div>
+<p>也可以写成：</p>
+<div class="cnblogs_code">
+<pre>WebElement password = driver.findElement(By.xpath("//*[@id='J_login_form']/*/*/input[@id='J_password']"));</pre>
+</div>
+<p>这里解释一下，其中//*[@id=’ J_login_form’]这一段是指在根元素下查找任意id为J_login_form的元素，此时相当于引用到了form元素。后面的路径必须按照源码的层级依次往下写。按照图（3）所示代码中，我们要找的input元素包含在一个dt标签内，而dt又包含在dl标签内，所以中间必须写上dl和dt两层，才到input这层。当然我们也可以用*号省略具体的标签名称，但元素的层级关系必须体现出来，比如我们不能写成//*[@id='J_login_form']/input[@id='J_password']，这样肯定会报错的。</p>
+<p>&nbsp;</p>
+<p>前面讲的都是xpath中基于准确元素属性的定位，其实xpath作为定位神器也可以用于模糊匹配。比如下面图（4）所示代码：</p>
+<p align="center"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/080035531251228.jpg" alt="">&nbsp;</p>
+<p align="center">图（4）</p>
+<p>这段代码中的“退出”这个超链接，没有标准id元素，只有一个rel和href，不是很好定位。不妨我们就用xpath的几种模糊匹配模式来定位它吧，主要有三种方式，举例如下。</p>
+<p>a. 用contains关键字，定位代码如下：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> driver.findElement(By.xpath(“<span style="color: #008000;">//</span><span style="color: #008000;">a[contains(@href, ‘logout’)]”));</span></pre>
+</div>
+<p>这句话的意思是寻找页面中href属性值包含有logout这个单词的所有a元素，由于这个退出按钮的href属性里肯定会包含logout，所以这种方式是可行的，也会经常用到。其中@后面可以跟该元素任意的属性名。</p>
+<p>b. 用start-with，定位代码如下：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> driver.findElement(By.xpath(“<span style="color: #008000;">//</span><span style="color: #008000;">a[starts-with(@rel, ‘nofo’)]));</span></pre>
+</div>
+<p>这句的意思是寻找rel属性以nofo开头的a元素。其中@后面的rel可以替换成元素的任意其他属性。</p>
+<p>c. 用Text关键字，定位代码如下：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> driver.findElement(By.xpath(“<span style="color: #008000;">//</span><span style="color: #008000;">*[text()=’退出’]));</span></pre>
+</div>
+<p>这个方法可谓相当霸气啊。直接查找页面当中所有的退出二字，根本就不用知道它是个a元素了。这种方法也经常用于纯文字的查找。</p>
+<p>另外，如果知道超链接元素的文本内容，也可以用</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> driver.findElement(By.xpath(“<span style="color: #008000;">//</span><span style="color: #008000;">a[contains(text(), ’退出’)]));</span></pre>
+</div>
+<p>这种方式一般用于知道超链接上显示的部分或全部文本信息时，可以使用。</p>
+<p>&nbsp;</p>
+<p>最后，关于xpath这种定位方式，webdriver会将整个页面的所有元素进行扫描以定位我们所需要的元素，所以这是一个非常费时的操作，如果你的脚本中大量使用xpath做元素定位的话，将导致你的脚本执行速度大大降低，所以请慎用。</p>
+<p>&nbsp;</p>
+<p><strong>8. By.cssSelector()</strong></p>
+<p>cssSelector这种元素定位方式跟xpath比较类似，但执行速度较快，而且各种浏览器对它的支持都相当到位，所以功能也是蛮强大的。</p>
+<p>下面是一些常见的cssSelector的定位方式：</p>
+<p>定位id为flrs的div元素，可以写成：#flrs&nbsp;&nbsp;&nbsp;&nbsp; 注：相当于xpath语法的//div[@id=’flrs’]</p>
+<p>定位id为flrs下的a元素，可以写成 #flrs &gt; a&nbsp; 注：相当于xpath语法的//div[@id=’flrs’]/a</p>
+<p>定位id为flrs下的href属性值为/forexample/about.html的元素，可以写成： #flrs &gt; a[href=”/forexample/about.html”]</p>
+<p>如果需要指定多个属性值时，可以逐一加在后面，如#flrs &gt; input[name=”username”][type=”text”]。</p>
+<p>&nbsp;</p>
+<p>明白基本语法后，我们来尝试用cssSelector方式来引用图（3）中选中的那个input对象，代码如下：</p>
+<div class="cnblogs_code">
+<pre>WebElement password = driver.findElement(By.cssSelector("#J_login_form&gt;dl&gt;dt&gt;input[id=’ J_password’]"));</pre>
+</div>
+<p>同样必须注意层级关系，这个不能省略。</p>
+<p>&nbsp;</p>
+<p>cssSelector还有一个用处是定位使用了复合样式表的元素，之前在第4种方式className里面提到过。现在我们就来看看如何通过cssSelector来引用到第4种方式中提到的那个button。button代码如下：</p>
+<div class="cnblogs_code">
+<pre>&lt;button id="J_sidebar_login" <span style="color: #0000ff;">class</span>="btn btn_big btn_submit" type="submit"&gt;登录&lt;/button&gt;</pre>
+</div>
+<p>cssSelector引用元素代码如下：</p>
+<div class="cnblogs_code">
+<pre>driver.findElement(By.cssSelector("button.btn.btn_big.btn_submit"))</pre>
+</div>
+<p>。这样就可以顺利引用到使用了复合样式的元素了。</p>
+<p>&nbsp;</p>
+<p>此外，cssSelector还有一些高级用法，如果熟练后可以更加方便地帮助我们定位元素，如我们可以利用^用于匹配一个前缀，$用于匹配一个后缀，*用于匹配任意字符。例如：</p>
+<p align="left">匹配一个有id属性，并且id属性是以”id_prefix_”开头的超链接元素：a[id^='id_prefix_']</p>
+<p align="left">匹配一个有id属性，并且id属性是以”_id_sufix”结尾的超链接元素：a[id$='_id_sufix']</p>
+<p align="left">匹配一个有id属性，并且id属性中包含”id_pattern”字符的超链接元素：a[id*='id_pattern']</p>
+<p>&nbsp;</p>
+<p>最后再总结一下，各种方式在选择的时候应该怎么选择：</p>
+<p>1. 当页面元素有id属性时，最好尽量用id来定位。但由于现实项目中很多程序员其实写的代码并不规范，会缺少很多标准属性，这时就只有选择其他定位方法。</p>
+<p>2. xpath很强悍，但定位性能不是很好，所以还是尽量少用。如果确实少数元素不好定位，可以选择xpath或cssSelector。</p>
+<p>3. 当要定位一组元素相同元素时，可以考虑用tagName或name。</p>
+<p>4. 当有链接需要定位时，可以考虑linkText或partialLinkText方式。</p>
+<p>&nbsp;</p>
+<p>参考资料：</p>
+<p>《Selenium Webdriver Practical Guide》</p>
+<p>https://saucelabs.com/resources/selenium/css-selectors</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/qingchunjun/category/647457.html" target="_blank">自动化测试工具研究</a></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/qingchunjun/tag/selenium%20webdriver%20%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D/">selenium webdriver 元素定位</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(4208159,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;8b6f3d0b-63cf-dd11-9e4d-001cf0cd104b&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/qingchunjun/" target="_blank"><img src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/u21888.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/qingchunjun/">测试控</a><br>
+            <a href="http://home.cnblogs.com/u/qingchunjun/followees">关注 - 0</a><br>
+            <a href="http://home.cnblogs.com/u/qingchunjun/followers">粉丝 - 42</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;8b6f3d0b-63cf-dd11-9e4d-001cf0cd104b&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(4208159,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">10</span>
+    </div>
+    <div class="buryit" onclick="votePost(4208159,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+</div>
+	</div></div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<h3>Feedback</h3>
+	
+			<div class="post">
+				<div class="posthead">
+					<h2>
+						<a href="http://www.cnblogs.com/qingchunjun/p/4208159.html#3327578" class="layer">#1楼</a><a name="3327578" id="comment_anchor_3327578"></a>
+						&nbsp;&nbsp;<span class="comment_actions"></span>
+					</h2>
+					 <span class="comment_date">2015-12-15 15:34</span> by <a id="a_comment_author_3327578" href="http://www.cnblogs.com/zhuhaiying/" target="_blank">坏脾气</a> <a href="http://msg.cnblogs.com/send/%E5%9D%8F%E8%84%BE%E6%B0%94" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+				<div class="postbody"><div id="comment_body_3327578" class="blog_comment_body">写得非常详细，尤其是xpath</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3327578,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3327578,&#39;Bury&#39;,this)">反对(0)</a></div></div>
+			</div>
+		
+			<div class="post">
+				<div class="posthead">
+					<h2>
+						<a href="http://www.cnblogs.com/qingchunjun/p/4208159.html#3377474" class="layer">#2楼</a><a name="3377474" id="comment_anchor_3377474"></a>
+						&nbsp;&nbsp;<span class="comment_actions"></span>
+					</h2>
+					 <span class="comment_date">2016-03-11 00:03</span> by <a id="a_comment_author_3377474" href="http://home.cnblogs.com/u/895754/" target="_blank">小猪快跑跑</a> <a href="http://msg.cnblogs.com/send/%E5%B0%8F%E7%8C%AA%E5%BF%AB%E8%B7%91%E8%B7%91" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+				<div class="postbody"><div id="comment_body_3377474" class="blog_comment_body">class属性值的“复合样式，原来可以这样定位</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3377474,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3377474,&#39;Bury&#39;,this)">反对(0)</a></div></div>
+			</div>
+		
+			<div class="post">
+				<div class="posthead">
+					<h2>
+						<a href="http://www.cnblogs.com/qingchunjun/p/4208159.html#3468989" class="layer">#3楼</a><a name="3468989" id="comment_anchor_3468989"></a>
+						&nbsp;&nbsp;<span class="comment_actions"></span>
+					</h2>
+					 <span class="comment_date">2016-07-13 09:58</span> by <a id="a_comment_author_3468989" href="http://home.cnblogs.com/u/941464/" target="_blank">心境心静</a> <a href="http://msg.cnblogs.com/send/%E5%BF%83%E5%A2%83%E5%BF%83%E9%9D%99" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+				<div class="postbody"><div id="comment_body_3468989" class="blog_comment_body">写的真好  如果有更多的例子就更好了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3468989,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3468989,&#39;Bury&#39;,this)">反对(0)</a></div></div>
+			</div>
+		
+			<div class="post">
+				<div class="posthead">
+					<h2>
+						<a href="http://www.cnblogs.com/qingchunjun/p/4208159.html#3500417" class="layer">#4楼</a><a name="3500417" id="comment_anchor_3500417"></a><span id="comment-maxId" style="display:none;">3500417</span><span id="comment-maxDate" style="display:none;">2016/8/31 15:17:12</span>
+						&nbsp;&nbsp;<span class="comment_actions"></span>
+					</h2>
+					 <span class="comment_date">2016-08-31 15:17</span> by <a id="a_comment_author_3500417" href="http://www.cnblogs.com/xuebi/" target="_blank">尘世漂泊的旅人</a> <a href="http://msg.cnblogs.com/send/%E5%B0%98%E4%B8%96%E6%BC%82%E6%B3%8A%E7%9A%84%E6%97%85%E4%BA%BA" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+				<div class="postbody"><div id="comment_body_3500417" class="blog_comment_body">谢谢 学习了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3500417,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3500417,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3500417_avatar" style="display:none;">http://pic.cnblogs.com/face/810593/20160425223941.png</span></div>
+			</div>
+		<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/qingchunjun/p/4208159.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/qingchunjun/p/4208159.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.gcpowertools.com.cn/products/componentoneenterprise/visualstudio.htm?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=C1&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/24442-20170531232608899-508438133.png" alt="C1"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/571297/" target="_blank">《王者荣耀》拉动代练业务 月入5万都不算高薪</a><br> ·  <a href="http://news.cnblogs.com/n/571296/" target="_blank">松下高管：共享单车在日本100年也实现不了</a><br> ·  <a href="http://news.cnblogs.com/n/571295/" target="_blank">硅谷也抄袭成风 Instagram创始人：大家互相借鉴</a><br> ·  <a href="http://news.cnblogs.com/n/571294/" target="_blank">扫码支付在美国也击败了NFC 沃尔玛支付反超安卓支付</a><br> ·  <a href="http://news.cnblogs.com/n/571293/" target="_blank">马斯克：特斯拉充电站将来全部使用太阳能和电池</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="https://www.mtyun.com/activity-anniversary?site=cnblogs&amp;campaign=20170601sales" target="_blank"><img width="468" height="60" src="./Selenium Webdriver元素定位的八种常用方式 - 测试控 - 博客园_files/24442-20170608095106606-2028001864.png" alt="美团云"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/570194/" target="_blank">小printf的故事：真正的程序员？</a><br> ·  <a href="http://kb.cnblogs.com/page/569992/" target="_blank">程序员的工作、学习与绩效</a><br> ·  <a href="http://kb.cnblogs.com/page/569056/" target="_blank">软件开发为什么很难</a><br> ·  <a href="http://kb.cnblogs.com/page/565901/" target="_blank">唱吧DevOps的落地，微服务CI/CD的范本技术解读</a><br> ·  <a href="http://kb.cnblogs.com/page/566523/" target="_blank">程序员，如何从平庸走向理想？</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="FooterCell">
+			
+<p id="footer">
+	Powered by: 
+	<br>
+	
+	<a id="Footer1_Hyperlink3" name="Hyperlink1" href="http://www.cnblogs.com/" style="font-family:Verdana;font-size:12px;">博客园</a>
+	<br>
+	Copyright © 测试控
+</p>
+
+		</td>
+	</tr>
+</tbody></table>
+
+
+
+</body></html>

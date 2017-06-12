@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://www.jb51.net/article/92673.htm -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<meta name="applicable-device" content="pc">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform">
+<title>Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+<meta name="keywords" content="selenium,父节点,selenium,兄弟节点">
+<meta name="description" content="这篇文章主要介绍了Python selenium 父子、兄弟、相邻节点定位方式详解的相关资料,非常不错，具有参考借鉴价值，需要的朋友可以参考下">
+<link rel="alternate" media="only screen and(max-width: 640px)" href="http://m.jb51.net/article/92673.htm">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://m.jb51.net/article/92673.htm">
+<meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.jb51.net/article/92673.htm">
+<script src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/ca-pub-6384567588307613.js.下载"></script><script src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/hm.js.下载"></script><script type="text/javascript" async="" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/dynamicFloat.js.下载"></script><script type="text/javascript" async="" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/pr.js.下载"></script><script type="text/javascript" async="" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/zb7e50c7dcf6cefe3e9f4c25d9.js.下载"></script><script src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/push.js.下载"></script><script type="text/javascript">
+var tougao="mrr";var lmname="python";
+(function(){var reWriteUrl=function(url){if(url){var Splits=url.split("/"),siteName=window.location.pathname;if(typeof siteName!=="undefined"){return "http://m.jb51.net"+siteName}}};if(/Android|webOS|iPhone|iPad|Windows Phone|iPod|BlackBerry|SymbianOS|Nokia|Mobile/i.test(navigator.userAgent)){var url=window.location.href;var pathname=window.location.pathname;if(url.indexOf("?pc")<0){try{window.location.href=reWriteUrl(url)}catch(e){}}}})();
+</script>
+<link type="text/css" href="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/base.css" rel="stylesheet">
+<link type="text/css" href="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/common.css" rel="stylesheet">
+<script type="text/javascript" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/jquery.min.js.下载"></script>
+<script type="text/javascript" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/function.js.下载"></script>
+</head>
+<body>
+<!--head Star -->
+<div id="head">
+  <div class="toolBar">
+  <div class="main">
+    <!--topNav Star -->
+    <div class="topNav clearfix">
+      <ul class="navList fl">
+        <li>
+          <div class="one"><a href="http://www.jb51.net/" target="_blank">脚本之家</a></div>
+        </li>
+        <li>
+          <div class="one"><a href="http://www.jb51.net/softs/" target="_blank">软件下载<i class="icon"></i></a></div>
+          <div class="two">
+<a href="http://www.jb51.net/softs/android.html" target="_blank">android软件</a> <a href="http://www.jb51.net/softs/mac.html" target="_blank">MAC软件</a> <a href="http://www.jb51.net/qudong/" target="_blank">驱动下载</a> <a href="http://www.jb51.net/fonts/" target="_blank">字体下载</a> <a href="http://www.jb51.net/dll/" target="_blank">DLL下载</a> </div>
+</li>
+        <li>
+          <div class="one"><a href="http://www.jb51.net/codes/" target="_blank">源码下载<i class="icon"></i></a></div>
+          <div class="two"> <a href="http://www.jb51.net/codes/asp.html" target="_blank">asp源码</a> <a href="http://www.jb51.net/codes/php.html" target="_blank">php源码</a> <a href="http://www.jb51.net/codes/aspnet.html" target="_blank">asp.net源码</a> <a href="http://www.jb51.net/codes/jsp.html" target="_blank">jsp源码</a> <a href="http://www.jb51.net/codes/editor.html" target="_blank">网页编辑器</a> <a href="http://www.jb51.net/codes/list123_1.html" target="_blank">数据库管理</a> <a href="http://www.jb51.net/codes/list124_1.html" target="_blank">常用组件</a> <a href="http://www.jb51.net/jiaoben/" target="_blank">脚本下载</a></div>
+        </li>
+        <li>
+          <div class="one"><a href="http://tools.jb51.net/" target="_blank">在线工具<i class="icon"></i></a></div>
+          <div class="two"> <a href="http://www.jb51.net/shouce/" target="_blank">在线手册</a> <a href="http://www.jb51.net/tools/cssyasuo.shtml" target="_blank">CSS格式化</a> <a href="http://tools.jb51.net/code/js" target="_blank">JS格式化</a> <a href="http://www.jb51.net/tools/html-js.htm" target="_blank">Html转化为Js</a> <a href="http://tools.jb51.net/regex/javascript" target="_blank">js正则表达式</a>
+</div>
+        </li>
+        <li>
+          <div class="one"><a href="http://www.jb51.net/w3school/" target="_blank">网页教程基础</a></div>
+        </li>
+			<li>
+          <div class="one"><a href="http://s.jb51.net/" target="_blank">服务器常用软件</a></div>
+        </li>
+		<li>
+          <div class="one"><a href="http://m.jb51.net/" target="_blank">手机版</a></div>
+          <div class="two"><img src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/m.jb51.net.png" data-baiduimageplus-ignore=""></div>     
+        </li>
+        <li><div class="one"><a href="http://wxbj.jb51.net/" target="_blank">微信编辑器</a></div></li><li class="watch">
+          <div class="one"><a href="http://www.jb51.net/about.htm" target="_blank" rel="nofollow"><i class="icon"></i>关注微信</a></div>
+          <div class="two"><img src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/weixin_200.gif" data-baiduimageplus-ignore=""></div>
+        </li>
+      </ul>
+      <div class="navUser mt5 fr" id="jb51_topbar"><div class="userbar"><a href="http://tougao.jb51.net/" target="_blank">投稿中心</a><img style="width:32px; height:22px" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/newn.gif" alt="hot"></div></div>
+    </div>
+    <!--topNav End -->
+  </div>
+</div>
+
+  <div class="main clearfix">
+    <div class="mtb10 clearfix">
+      <div class="logo"><a href="http://www.jb51.net/"><img src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/logo.gif" title="脚本之家" alt="脚本之家"></a></div>
+      <div class="logom fl"><a href="http://vps.zzidc.com/tongji/jb51.html" target="_blank"><img src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/zzidc370.gif" width="370" height="60"></a>
+</div>
+      <div class="logor fr"><a href="http://www.ku86.com/" target="_blank"><img src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/kuyun_370.gif" width="370" height="60"></a>
+</div>
+    </div>
+<!-- 导航-->
+<div class="nav_top clearfix">
+<ul>
+<li><a href="http://www.jb51.net/web/">网页制作</a></li>
+<li><a href="http://www.jb51.net/list/index_1.htm">网络编程</a></li>
+<li><a href="http://www.jb51.net/list/index_96.htm">脚本专栏</a></li>
+<li><a href="http://www.jb51.net/jiaoben/">脚本下载</a></li>
+<li><a href="http://www.jb51.net/list/index_104.htm">数据库</a></li>
+<li><a href="http://www.jb51.net/cms/">CMS教程</a></li>
+<li><a href="http://www.jb51.net/books/">电子书籍</a></li>
+<li><a href="http://www.jb51.net/pingmian/">平面设计</a></li>
+<li><a href="http://www.jb51.net/media/">媒体动画</a></li>
+<li><a href="http://www.jb51.net/os/">操作系统</a></li>
+<li><a href="http://www.jb51.net/yunying/">网站运营</a></li>
+<li><a href="http://www.jb51.net/hack/">网络安全</a></li>
+<li class="last"><a href="http://www.jb51.net/shouce/">在线手册</a></li>
+
+</ul>
+</div>
+
+<!--导航结束-->
+<div class="subnav clearfix">
+<ul><li><a href="http://www.jb51.net/list/list_114_1.htm" title="vbs">vbs</a></li>
+<li><a href="http://www.jb51.net/list/list_106_1.htm" title="DOS/BAT">DOS/BAT</a></li>
+<li><a href="http://www.jb51.net/list/list_110_1.htm" title="hta">hta</a></li>
+<li><a href="http://www.jb51.net/list/list_111_1.htm" title="htc">htc</a></li>
+<li><a href="http://www.jb51.net/list/list_97_1.htm" title="python">python</a></li>
+<li><a href="http://www.jb51.net/list/list_125_1.htm" title="perl">perl</a></li>
+<li><a href="http://www.jb51.net/list/list_138_1.htm" title="游戏相关">游戏相关</a></li>
+<li><a href="http://www.jb51.net/list/list_161_1.htm" title="VBA">VBA</a></li>
+<li><a href="http://www.jb51.net/list/list_163_1.htm" title="远程脚本">远程脚本</a></li>
+<li><a href="http://www.jb51.net/list/list_178_1.htm" title="ColdFusion">ColdFusion</a></li>
+<li><a href="http://www.jb51.net/list/list_201_1.htm" title="ruby专题">ruby专题</a></li>
+<li><a href="http://www.jb51.net/list/list_213_1.htm" title="autoit">autoit</a></li>
+<li><a href="http://www.jb51.net/list/list_214_1.htm" title="seraphzone">seraphzone</a></li>
+<li><a href="http://www.jb51.net/list/list_234_1.htm" title="PowerShell">PowerShell</a></li>
+<li><a href="http://www.jb51.net/list/list_235_1.htm" title="linux shell">linux shell</a></li>
+<li><a href="http://www.jb51.net/list/list_245_1.htm" title="Lua">Lua</a></li>
+<li><a href="http://www.jb51.net/list/list_246_1.htm" title="Golang">Golang</a></li>
+<li><a href="http://www.jb51.net/list/list_249_1.htm" title="Erlang">Erlang</a></li>
+<li><a href="http://www.jb51.net/list/list_130_1.htm" title="其它">其它</a></li>
+</ul>
+</div>
+<div class="NavBar clearfix ptb10">
+<div class="fl w690">
+<div class="box mb15 mt10"><i class="icon"></i>您的位置：<a href="http://www.jb51.net/">首页</a> → <a href="http://www.jb51.net/list/index_96.htm" title="脚本专栏">脚本专栏</a> → <a href="http://www.jb51.net/list/list_97_1.htm" title="python">python</a> → 正文内容 selenium 获取父子 兄弟 节点</div>
+</div>
+<div class="fr w300"><div class="search">
+<form action="http://so.jb51.net/cse/search" target="_blank">
+    <input type="hidden" name="s" value="10520733385329581432">
+    <input type="hidden" name="ie" value="gbk">
+    <input type="text" name="q" class="key_input" placeholder="请输入关键词">
+    <input type="submit" value="搜索" class="c_btn">
+</form></div></div>
+  </div>
+</div>
+<!--head End -->
+<div class="main mb10 clearfix">
+<div class="clearfix"><div class="mainlr"><a href="http://click.aliyun.com/m/22821/" target="_blank"><img src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/ali1000.jpg" alt="cdnoss" width="1000" height="60"></a></div><div class="blank5"></div><div id="txtlink"><ul><li><a href="http://www.qqll.me/" target="_blank"><span style="color:red;">低价出售流量10000IP只需8元</span></a></li><li><a href="http://click.aliyun.com/m/15321/" target="_blank"><span style="color:red;">30余款阿里云产品免费6个月&gt;&gt;</span></a></li><li><a href="http://user.liuliangdada.com/" target="_blank"><span style="color:red;">日供百万IP、2亿UV★5元/万、可点击</span></a></li><li><a href="http://www.zndata.com/cloud/xianggang/" target="_blank"><span style="color:red;">买3送1香港云49元/美国49元/韩国云89元</span></a></li><li><a href="http://eemoney.cn/" target="_blank"><span style="color:blue;">实力团队 带你做网赚项目！日赚千元</span></a></li><li><a href="http://www.xmwzidc.com/" target="_blank"><span style="color:blue;">◆◆◆海西数据全球服务器租用◆◆◆</span></a></li><li><a href="http://s.jb51.net/" target="_blank"><span style="color:blue;">服务器常用软件</span></a></li><li><a href="http://www.zitian.cn/Products/zhongyuan/overview.aspx" target="_blank"><span style="color:blue;">中原地区核心数据中心，首月托管免费</span></a></li><li><a href="http://www.laoyuming.com/" target="_blank"><span style="color:red;">【3000个备案老域名】100元起 每天更新</span></a></li><li><a href="http://www.2016idc.com/cdn.html" target="_blank"><span style="color:red;">◆◆◆◆◆高防免备案CDN◆◆◆◆◆</span></a></li><li><a href="http://www.enkj.com/special/20160315/" target="_blank"><span style="color:red;">BGP四线 亿恩1U服务器托管3999元/年</span></a></li><li><a href="http://www.jjidc.com/" target="_blank"><span style="color:red;">九九数据 — 工信部认可正规资质IDC接入商</span></a></li><li><a href="http://www.59dun.com/" target="_blank"><span style="color:blue;">59盾★500G无限防★打不死高防服务器</span></a></li><li><a href="http://www.ku86.com/" target="_blank"><span style="color:blue;">百兆 12核24线程 16G内存 2T 999/月</span></a></li><li><a href="http://www.021.net/" target="_blank"><span style="color:blue;">众生网络 基于云计算的互联网基础服务运营商</span></a></li><li><a href="https://www.99-idc.com/yunbohao/hunbo.asp" target="_blank"><span style="color:blue;">全国混拔ADSL云服务器租用/创梦网络</span></a></li><li><a href="http://www.33ip.com/" target="_blank"><span style="color:red;">枫信科技-江苏双线10M保证-399/元</span></a></li><li><a href="http://www.gwidc.com/html/server_zy_xz.asp" target="_blank"><span style="color:red;">港湾网络-徐州百独16核32G 999/月~</span></a></li><li><a href="http://www.ssf.cc/" target="_blank"><span style="color:red;">免备vps20/百独799/双线350/45互联</span></a></li><li><a href="http://www.xiaozhiyun.com/2016/" target="_blank"><span style="color:red;">韩国香港美国站群服务器 巨牛网络</span></a></li><li><a href="http://www.139w.com/" target="_blank"><span style="color:blue;">鼎点网络百兆独享服务器仅需999元</span></a></li><li><a href="http://www.360jq.com/hkshuang.htm" target="_blank"><span style="color:blue;">[香港双高防]无视CC★DDOS/堪比广东！</span></a></li><li><a href="http://www.cyidc.cc/" target="_blank"><span style="color:blue;">畅游网络 百独服务器 包跑满 998元</span></a></li><li><a href="http://www.wdw6.com/" target="_blank"><span style="color:blue;">服务器租用  199元起</span></a></li><li><a href="http://www.wsisp.net/sale/20170518/?indexjb" target="_blank"><span style="color:red;">█▇▆5M独享云主机599/年▆▇█</span></a></li><li><a href="http://www.qy.com.cn/" target="_blank"><span style="color:red;">群英云服务器送10M带宽30G防御,49元起</span></a></li><li><a href="http://www.tuidc.com/" target="_blank"><span style="color:red;">服务器租用/托管-域名空间/认准腾佑科技</span></a></li><li><a href="https://www.zllyun.com/" target="_blank"><span style="color:red;">▆▇██香港云虚拟主机￥1/年 ▆▇█</span></a></li></ul><div class="clearfix"></div></div><div class="blank6"></div><div class="topimg"><ul><li><a href="http://www.west.cn/services/CloudHost/?ads=jb512014" target="_blank"><img alt="" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/west263_237.gif" width="237" height="60"></a></li><li><a href="http://click.aliyun.com/m/21949/" target="_blank"><img alt="" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/ali_237_1.jpg" width="237" height="60"></a></li><li><a href="http://www.xinghai365.com/new/cloud/cloud.asp" target="_blank"><img alt="" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/xinghaivps.gif" width="237" height="60"></a></li><li><a href="http://www.7e.hk/product/list/12254.html" target="_blank"><img alt="" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/7ehk.gif" width="237" height="60"></a></li></ul></div><div class="blank6"></div><div class="mainlr"><a href="https://www.niaoyun.com/act/shoufa/#jbzj-1-27?utm_source=jbzj&amp;utm_medium=cpc&amp;utm_term=jbzj&amp;utm_content=jbzj&amp;utm_campaign=jbzj" target="_blank"><img src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/niaoyun_1000.png" alt="niaoyun" width="1000" height="60"></a></div><div class="blank5"></div><div class="mainlr"><a href="https://www.mtyun.com/?site=jb51&amp;campain=20170601sales" target="_blank"><img src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/meituanyun1000.gif" alt="mtyun" width="1000" height="60"></a></div><div class="blank5"></div>
+</div>
+</div>
+
+<!--content Star -->
+<div id="contents">
+ <div class="main clearfix">
+      <div class="w690 fl">
+      <div class="article-content border">
+      <div class="title">
+            <h1 class="YaHei">Python selenium 父子、兄弟、相邻节点定位方式详解</h1>
+            <p>作者：huilan_same  字体：[<a href="javascript:turnbig()">增加</a> <a href="javascript:turnsmall()">减小</a>] 类型：转载 时间：2016-09-15<a href="http://www.jb51.net/article/92673.htm#comments"> 我要评论</a></p>
+        </div>
+        <div class="art_desc mt10"><div id="art_demo">这篇文章主要介绍了Python selenium 父子、兄弟、相邻节点定位方式详解的相关资料,非常不错，具有参考借鉴价值，需要的朋友可以参考下</div></div>
+        <div class="lbd clearfix"><div id="_yzu8zzkhjy8" style="width: 100%;"><iframe id="xpgouq6ctn5u2866688" width="680" height="100" scrolling="no" frameborder="0" style="border-top: 0;margin:0; border-right: 0;border-left: 0;" allowtransparency="true" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/s.html"></iframe></div><script type="text/javascript" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/gn3a1ecf96f1ccff30db1c7481b2b03ded00b3930a3ef6.js.下载"></script>
+</div>
+        <div id="content">
+<p>今天跟大家分享下selenium中根据父子、兄弟、相邻节点定位的方法，很多人在实际应用中会遇到想定位的节点无法直接定位，需要通过附近节点来相对定位的问题，但从父节点定位子节点容易，从子节点定位父节点、定位一个节点的哥哥节点就一筹莫展了，别急，且看博主一步步讲解。</p>
+<p><span style="background-color: #ffff00"><strong>1. 由父节点定位子节点</strong></span></p>
+<p>最简单的肯定就是由父节点定位子节点了，我们有很多方法可以定位，下面上个例子：</p>
+<p>对以下代码：</p>
+<div class="jb51code">
+<pre class="brush:py;">&lt;html&gt;
+&lt;body&gt;
+&lt;div id="A"&gt;
+&lt;!--父节点定位子节点--&gt;
+&lt;div id="B"&gt;
+&lt;div&gt;parent to child&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+<p>想要根据 B节点 定位无id的子节点，代码示例如下：</p>
+<div class="jb51code">
+<pre class="brush:py;"># -*- coding: utf-8 -*-
+from selenium import webdriver
+driver = webdriver.Firefox()
+driver.get('D:\\py\\AutoTestFramework\\src\\others\\test.html')
+# 1.串联寻找
+print driver.find_element_by_id('B').find_element_by_tag_name('div').text
+# 2.xpath父子关系寻找
+print driver.find_element_by_xpath("//div[@id='B']/div").text
+# 3.css selector父子关系寻找
+print driver.find_element_by_css_selector('div#B&gt;div').text
+# 4.css selector nth-child
+print driver.find_element_by_css_selector('div#B div:nth-child(1)').text
+# 5.css selector nth-of-type
+print driver.find_element_by_css_selector('div#B div:nth-of-type(1)').text
+# 6.xpath轴 child
+print driver.find_element_by_xpath("//div[@id='B']/child::div").text
+driver.quit()</pre>
+</div>
+<p>结果：</p>
+<p>parent to child<br>
+parent to child<br>
+parent to child<br>
+parent to child<br>
+parent to child<br>
+parent to child</p>
+<p>第1到第3都是我们熟悉的方法，便不再多言。第4种方法用到了css选择器：nth-child(n)，该选择器返回第n个节点，该节点为div标签；第5种方法用到了另一个css选择器： nth-of-type(n)，该选择器返回第n个div标签，注意与上一个选择器的区别；第6种方法用到了xpath轴 child，这个是xpath默认的轴，可以忽略不写，其实质是跟方法2一样的。</p>
+<p>当然，css中还有一些选择器是可以选择父子关系的如last-child、nth-last-child等，感兴趣可以自行百度，有机会博主会讲讲css selector。</p>
+<p><span style="background-color: #ffff00"><strong>2. 由子节点定位父节点</strong></span></p>
+<p>由子节点想要定位到父节点就有点难度了，对以下代码：</p>
+<div class="jb51code">
+<pre class="brush:py;">&lt;html&gt;
+&lt;body&gt;
+&lt;div id="A"&gt;
+&lt;!--子节点定位父节点--&gt;
+&lt;div&gt;
+&lt;div&gt;child to parent
+&lt;div&gt;
+&lt;div id="C"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+<p>我们想要由 C节点 定位其两层父节点的div，示例代码如下：</p>
+<div class="jb51code">
+<pre class="brush:py;"># -*- coding: utf-8 -*-
+from selenium import webdriver
+driver = webdriver.Firefox()
+driver.get('D:\\py\\AutoTestFramework\\src\\others\\test.html')
+# 1.xpath: `.`代表当前节点; '..'代表父节点
+print driver.find_element_by_xpath("//div[@id='C']/../..").text
+# 2.xpath轴 parent
+print driver.find_element_by_xpath("//div[@id='C']/parent::*/parent::div").text
+driver.quit()</pre>
+</div>
+<p>结果：</p>
+<p>child to parent<br>
+child to parent</p>
+<p>这里我们有两种办法，第1种是 .. 的形式，就像我们知道的，. 表示当前节点，.. 表示父节点；第2种办法跟上面一样，是xpath轴中的一个：parent，取当前节点的父节点。这里也是css selector的一个痛点，因为css的设计不允许有能够获取父节点的办法（至少目前没有）</p>
+<p><span style="background-color: #ffff00"><strong>3. 由弟弟节点定位哥哥节点</strong></span></p>
+<p>这是第3、第4种情况，我们这里要定位的是兄弟节点了。如以下源码：</p>
+<div class="jb51code">
+<pre class="brush:py;">&lt;html&gt;
+&lt;body&gt;
+&lt;div id="A"&gt;
+&lt;!--下面两个节点用于兄弟节点定位--&gt;
+&lt;div&gt;brother 1&lt;/div&gt;
+&lt;div id="D"&gt;&lt;/div&gt;
+&lt;div&gt;brother 2&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+<p>怎么通过 D节点 定位其哥哥节点呢？看代码示例：</p>
+<div class="jb51code">
+<pre class="brush:py;"># -*- coding: utf-8 -*-
+from selenium import webdriver
+driver = webdriver.Firefox()
+driver.get('D:\\Code\\py\\AutoTestFramework\\src\\others\\test.html')
+# 1.xpath,通过父节点获取其哥哥节点
+print driver.find_element_by_xpath("//div[@id='D']/../div[1]").text
+# 2.xpath轴 preceding-sibling
+print driver.find_element_by_xpath("//div[@id='D']/preceding-sibling::div[1]").text
+driver.quit()</pre>
+</div>
+<p>结果</p>
+<p>brother 1<br>
+brother 1</p>
+<p>这里博主也列举了两种方法，一种是通过该节点的父节点来获得哥哥节点，另外一种比较优雅，是通过 xpath轴：preceding-sibling，其能够获取当前节点的所有同级哥哥节点，注意括号里的标号，1 代表着离当前节点最近的一个哥哥节点，数字越大表示离当前节点越远，当然，xpath轴：preceding也可以，但是使用起来比较复杂，它获取到的是该节点之前的所有非祖先节点（这里不太好解释，改天专门写篇博文讲解下所有的轴）</p>
+<p><span style="background-color: #ffff00"><strong>4. 由哥哥节点定位弟弟节点</strong></span></p>
+<p>源码与 3 一致，要想通过 D节点 定位其弟弟节点，看代码示例：</p>
+<div class="jb51code">
+<pre class="brush:py;"># -*- coding: utf-8 -*-
+from selenium import webdriver
+driver = webdriver.Firefox()
+driver.get('D:\\Code\\py\\AutoTestFramework\\src\\others\\test.html')
+# 1.xpath，通过父节点获取其弟弟节点
+print driver.find_element_by_xpath("//div[@id='D']/../div[3]").text
+# 2.xpath轴 following-sibling
+print driver.find_element_by_xpath("//div[@id='D']/following-sibling::div[1]").text
+# 3.xpath轴 following
+print driver.find_element_by_xpath("//div[@id='D']/following::*").text
+# 4.css selector +
+print driver.find_element_by_css_selector('div#D + div').text
+# 5.css selector ~
+print driver.find_element_by_css_selector('div#D ~ div').text
+driver.quit()</pre>
+</div>
+<p>结果：</p>
+<p>brother 2<br>
+brother 2<br>
+brother 2<br>
+brother 2<br>
+brother 2</p>
+<p>博主分享了五种方法定位其弟弟节点，上面三种是用xpath，第一种很好理解，第二种用到了xpath轴：following-sibling，跟preceding-sibling类似，它的作用是获取当前节点的所有同级弟弟节点，同样，1 代表离当前节点最近的一个弟弟节点，数字越大表示离当前节点越远；第三种用到了xpath轴：following，获取到该节点之后所有节点，除了祖先节点（跟preceding方向相反，但因为往下顺序容易读，不容易出错，所以也是可以用来获取弟弟节点的，但也不建议这么使用）；第四、第五种，我们用到了css selector，+ 和 ~ 的区别是： + 表示紧跟在当前节点之后的div节点，~ 表示当前节点之后的div节点，如果用find_elements，则可获取到一组div节点。</p>
+<p>以上所述是小编给大家介绍的Python selenium 父子、兄弟、相邻节点定位方式详解的全部叙述，希望对大家有所帮助，如果大家有任何疑问欢迎给我留言，小编会及时回复大家的，在此也非常感谢大家对脚本之家网站的支持！</p>
+
+<p>原文链接：http://blog.csdn.net/huilan_same/article/details/52541680</p><p class="content-shequ">如对本文有疑问，请提交到交流社区，广大热心网友会为你解答！！  <a href="http://shequ.jb51.net/" target="_blank">点击进入社区</a></p></div><!--endmain-->
+<div class="art_xg">
+<h4>您可能感兴趣的文章:</h4><ul><li><a href="http://www.jb51.net/article/92682.htm" title="玩转python selenium鼠标键盘操作（ActionChains）" target="_blank">玩转python selenium鼠标键盘操作（ActionChains）</a></li><li><a href="http://www.jb51.net/article/92678.htm" title="Python selenium文件上传方法汇总" target="_blank">Python selenium文件上传方法汇总</a></li><li><a href="http://www.jb51.net/article/92677.htm" title="解读Python selenium的等待方式" target="_blank">解读Python selenium的等待方式</a></li><li><a href="http://www.jb51.net/article/92672.htm" title="Python selenium 三种等待方式详解(必会)" target="_blank">Python selenium 三种等待方式详解(必会)</a></li><li><a href="http://www.jb51.net/article/87393.htm" title="python结合selenium获取XX省交通违章数据的实现思路及代码" target="_blank">python结合selenium获取XX省交通违章数据的实现思路及代码</a></li><li><a href="http://www.jb51.net/article/52329.htm" title="Python中使用 Selenium 实现网页截图实例" target="_blank">Python中使用 Selenium 实现网页截图实例</a></li><li><a href="http://www.jb51.net/article/92684.htm" title="Python selenium 三种等待方式解读" target="_blank">Python selenium 三种等待方式解读</a></li></ul>
+</div>
+<div class="lbd clearfix">
+<script type="text/javascript">var cpro_id="u776243";(window["cproStyleApi"] = window["cproStyleApi"] || {})[cpro_id]={at:"3",rsi0:"650",rsi1:"250",pat:"1",tn:"baiduCustNativeAD",rss1:"#FFFFFF",conBW:"0",adp:"1",ptt:"0",titFF:"%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91",titFS:"14",rss2:"#000000",titSU:"0",tft:"0",tlt:"1",ptbg:"90",piw:"0",pih:"0",ptp:"0"}</script><script src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/c.js.下载" type="text/javascript"></script><div id="BAIDU_SSP__wrapper_u776243_0"><iframe id="iframeu776243_0" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/acqm.html" width="650" height="250" align="center,center" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" style="border:0;vertical-align:bottom;margin:0;width:650px;height:250px" allowtransparency="true"></iframe></div>
+
+</div>
+<div id="shoucang"></div>
+<div class="tags mt10">
+<strong>Tags：</strong><a href="http://common.jb51.net/tag/selenium/1.htm" target="_blank" title="搜索关于selenium的文章">selenium</a> <a href="http://common.jb51.net/tag/%E7%88%B6%E8%8A%82%E7%82%B9/1.htm" target="_blank" title="搜索关于父节点的文章">父节点</a> <a href="http://common.jb51.net/tag/%E5%85%84%E5%BC%9F%E8%8A%82%E7%82%B9/1.htm" target="_blank" title="搜索关于兄弟节点的文章">兄弟节点</a> 
+</div>
+<div class="relatedarticle clearfix mt5">
+<h2>相关文章</h2>
+<ul><li><span>2017-04-04</span><a href="http://www.jb51.net/article/111549.htm" title="Python编程修改MP3文件名称的方法" target="_blank">Python编程修改MP3文件名称的方法</a></li><li><span>2014-09-09</span><a href="http://www.jb51.net/article/55660.htm" title="python使用Berkeley DB数据库实例" target="_blank">python使用Berkeley DB数据库实例</a></li><li><span>2015-05-05</span><a href="http://www.jb51.net/article/66609.htm" title="Python OS模块常用函数说明" target="_blank">Python OS模块常用函数说明</a></li><li><span>2014-12-12</span><a href="http://www.jb51.net/article/58480.htm" title="Python 正则表达式(转义问题)" target="_blank">Python 正则表达式(转义问题)</a></li><li><span>2015-07-07</span><a href="http://www.jb51.net/article/69227.htm" title="Python中的fileinput模块的简单实用示例" target="_blank">Python中的fileinput模块的简单实用示例</a></li><li><span>2014-04-04</span><a href="http://www.jb51.net/article/49376.htm" title="python实现的二叉树算法和kmp算法实例" target="_blank">python实现的二叉树算法和kmp算法实例</a></li><li><span>2016-12-12</span><a href="http://www.jb51.net/article/99453.htm" title="python利用正则表达式提取字符串" target="_blank">python利用正则表达式提取字符串</a></li><li><span>2015-03-03</span><a href="http://www.jb51.net/article/62316.htm" title="python通过pil模块将raw图片转换成png图片的方法" target="_blank">python通过pil模块将raw图片转换成png图片的方法</a></li><li><span>2016-12-12</span><a href="http://www.jb51.net/article/101327.htm" title="python实现二维码扫码自动登录淘宝" target="_blank">python实现二维码扫码自动登录淘宝</a></li><li><span>2014-07-07</span><a href="http://www.jb51.net/article/51796.htm" title="在Windows8上的搭建Python和Django环境" target="_blank">在Windows8上的搭建Python和Django环境</a></li></ul>
+</div>
+<div class="lbd clearfix mt5">
+<div id="_m6t3s38an4" style="width: 100%;"><iframe id="qf9buxth2lenu2866701" width="680" height="200" scrolling="no" frameborder="0" style="border-top: 0;margin:0; border-right: 0;border-left: 0;" allowtransparency="true" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/s(1).html"></iframe></div><script type="text/javascript" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/tb3a1ecf96f1cdf739db1c7481b2b03ded00b3930a3ef6.js.下载"></script>
+
+</div>
+<a href="http://www.jb51.net/article/92673.htm#comments"></a>
+<div id="comments">
+<h2>最新评论</h2>
+<div class="pd5"><div id="SOHUCS" sid="art_92673"></div></div>
+</div>
+      </div><!--endborder-->
+      </div><!--end fl-->
+      
+<div class="w300 fr">
+<div class="r300 clearfix"><script async="" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/adsbygoogle.js.下载"></script><ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-6384567588307613" data-ad-slot="2817964327" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:300px;height:250px;" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/saved_resource.html"></iframe></ins></ins></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="tabTitleBar mt10 bgf borderTblue">
+<div class="borderTnone pb10 YaHei">
+<h4 class="blue">大家感兴趣的内容</h4>
+<ul class="newsList newList-in">
+<li><em class="no1">1</em><a href="http://www.jb51.net/article/926.htm" title="Python入门教程 超详细1小时学会Python" target="_blank">Python入门教程 超详细1小时学会</a></li><li><em class="no2">2</em><a href="http://www.jb51.net/article/26543.htm" title="python 中文乱码问题深入分析" target="_blank">python 中文乱码问题深入分析</a></li><li><em class="no3">3</em><a href="http://www.jb51.net/article/37287.htm" title="python strip()函数 介绍" target="_blank">python strip()函数 介绍</a></li><li><em class="no4">4</em><a href="http://www.jb51.net/article/47978.htm" title="Python 列表(List)操作方法详解" target="_blank">Python 列表(List)操作方法详解</a></li><li><em class="no5">5</em><a href="http://www.jb51.net/article/50689.htm" title="pycharm 使用心得（一）安装和首次使用" target="_blank">pycharm 使用心得（一）安装和首</a></li><li><em class="no6">6</em><a href="http://www.jb51.net/article/15707.htm" title="比较详细Python正则表达式操作指南(re使用)" target="_blank">比较详细Python正则表达式操作指</a></li><li><em class="no7">7</em><a href="http://www.jb51.net/article/47990.htm" title="Python 字典(Dictionary)操作详解" target="_blank">Python 字典(Dictionary)操作详解</a></li><li><em class="no8">8</em><a href="http://www.jb51.net/article/51651.htm" title="Python科学计算环境推荐——Anaconda" target="_blank">Python科学计算环境推荐——Anac</a></li><li><em class="no9">9</em><a href="http://www.jb51.net/article/47986.htm" title="Python 元组(Tuple)操作详解" target="_blank">Python 元组(Tuple)操作详解</a></li><li><em class="no10">10</em><a href="http://www.jb51.net/article/17560.htm" title="Python字符串的encode与decode研究心得乱码问题解决方法" target="_blank">Python字符串的encode与decode研</a></li>
+</ul>
+</div>
+</div>
+<div class="r300 clearfix mt10"><script async="" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/adsbygoogle.js.下载"></script><!--thea+300*250--><ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-6389290466807248" data-ad-slot="6788945816" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:300px;height:250px;" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/saved_resource(1).html"></iframe></ins></ins></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><div class="blank10"></div><a href="http://click.aliyun.com/m/21950/" target="_blank"><img alt="" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/ali_300_1.jpg" width="300" height="100"></a><div class="blank10"></div><a href="http://www.w3cschool.cn/welcome?tnid=1003" target="_blank"><img alt="" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/w3cschool.png" width="300" height="100"></a>
+</div>
+<div class="tabTitleBar mt10 bgf borderTblue">
+<div class="borderTnone pb10 YaHei">
+<h4 class="blue">最近更新的内容</h4>
+<ul class="newsListA">
+<ul><li><a href="http://www.jb51.net/article/62818.htm" title="python通过wxPython打开一个音频文件并播放的方法" target="_blank">python通过wxPython打开一个音频文件并播</a></li><li><a href="http://www.jb51.net/article/48658.htm" title="python实现数通设备tftp备份配置文件示例" target="_blank">python实现数通设备tftp备份配置文件示例</a></li><li><a href="http://www.jb51.net/article/57339.htm" title="python服务器与android客户端socket通信实例" target="_blank">python服务器与android客户端socket通信实</a></li><li><a href="http://www.jb51.net/article/70320.htm" title="使用Python脚本生成随机IP的简单方法" target="_blank">使用Python脚本生成随机IP的简单方法</a></li><li><a href="http://www.jb51.net/article/81971.htm" title="python制作爬虫并将抓取结果保存到excel中" target="_blank">python制作爬虫并将抓取结果保存到excel中</a></li><li><a href="http://www.jb51.net/article/71298.htm" title="详解Python3中yield生成器的用法" target="_blank">详解Python3中yield生成器的用法</a></li><li><a href="http://www.jb51.net/article/109428.htm" title="python3实现ftp服务功能（客户端）" target="_blank">python3实现ftp服务功能（客户端）</a></li><li><a href="http://www.jb51.net/article/60631.htm" title="Linux下编译安装MySQL-Python教程" target="_blank">Linux下编译安装MySQL-Python教程</a></li><li><a href="http://www.jb51.net/article/92392.htm" title="Python 如何访问外围作用域中的变量" target="_blank">Python 如何访问外围作用域中的变量</a></li><li><a href="http://www.jb51.net/article/64142.htm" title="python使用urlparse分析网址中域名的方法" target="_blank">python使用urlparse分析网址中域名的方法</a></li></ul>
+</ul>
+</div>
+</div>   
+<div class="r300 clearfix mt10"><div class="idc3"><a href="http://www.021.net/" target="_blank"><h1>众生网络</h1><span>品牌服务器租用</span> </a><a href="http://www.geisnic.com/" target="_blank"><h1>集思网络</h1><span>VPS主机</span> </a><a href="http://www.33ip.com/" target="_blank"><h1>枫信科技</h1><span>IDC服务商</span> </a></div>
+</div>
+<div class="tabTitleBar mt10 bgf borderTblue">
+<div class="borderTnone pb10 YaHei">
+<h4 class="blue">常用在线小工具</h4>
+<ul class="newsListA"><li><a href="http://tools.jb51.net/code/phpformat" target="_blank"><font color="red">php代码在线格式化美化工具</font></a></li><li><a href="http://tools.jb51.net/transcoding/html_transcode" target="_blank"><font color="red">在线HTML转义/反转义工具</font></a></li><li><a href="http://tools.jb51.net/transcoding/jb51qrcode" target="_blank">在线生成二维码工具(加强版)</a></li><li><a href="http://tools.jb51.net/regex/create_reg" target="_blank"><font color="red">正则表达式在线生成工具</font></a></li><li><a href="http://tools.jb51.net/code/jscompress" target="_blank">JavaScript压缩/格式化/加密工具</a></li><li><a href="http://tools.jb51.net/regex/javascript" target="_blank">JavaScript正则在线测试工具</a></li><li><a href="http://tools.jb51.net/code/sqlcodeformat" target="_blank">sql代码在线格式化美化工具</a></li><li><a href="http://tools.jb51.net/code/json" target="_blank">JSON代码工具</a></li><li><a href="http://tools.jb51.net/code/xmljson" target="_blank">在线XML/JSON互相转换工具</a></li><li><a href="http://tools.jb51.net/code/unixtime" target="_blank">Unix时间戳(timestamp)转换工具</a></li>
+</ul>
+</div>
+</div>
+<div class="r300 clearfix mt10" id="idctu2"><a href="http://tuidc.com/" target="_blank"><img src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/tengyou300.gif" width="300" height="100"></a><div class="blank10"></div><a href="http://www.enkj.com/encloud/" target="_blank"><img src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/enkj_300.gif" alt="云服务器" width="300" height="100"></a>
+</div>
+<div class="mt10 rFixedBox">
+<script type="text/javascript">var cpro_id="u1397867";(window["cproStyleApi"] = window["cproStyleApi"] || {})[cpro_id]={at:"3",rsi0:"300",rsi1:"380",pat:"6",tn:"baiduCustNativeAD",rss1:"#FFFFFF",conBW:"1",adp:"1",ptt:"0",titFF:"%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91",titFS:"14",rss2:"#000000",titSU:"0",ptbg:"90",piw:"0",pih:"0",ptp:"0"}</script><script src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/c.js.下载" type="text/javascript"></script><div id="BAIDU_SSP__wrapper_u1397867_0" style="width: 300px; height: 380px; display: inline-block;"><iframe id="iframeu1397867_0" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/acqm(1).html" width="300" height="380" align="center,center" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" style="border:0;vertical-align:bottom;margin:0;width:300px;height:380px" allowtransparency="true"></iframe></div>
+
+</div>
+      
+      
+      </div><!--end fr-->
+      </div>
+</div><!--end content-->
+<div id="footer">
+<div class="main clearfix">
+<p>
+<a href="http://www.jb51.net/about.htm" target="_blank">关于我们</a> - 
+<a href="http://www.jb51.net/support.htm" target="_blank">广告合作</a> - 
+<a href="http://www.jb51.net/linkus.htm" target="_blank">联系我们</a> -  
+<a href="http://www.jb51.net/sm.htm" target="_blank">免责声明</a> -  
+<a href="http://www.jb51.net/sitemap.htm" target="_blank">网站地图</a> - 
+<a href="tencent://message/?uin=461478385&amp;Site=http://www.jb51.net" target="_blank">投诉建议</a> - 
+<a href="http://www.jb51.net/up.htm" target="_blank">在线投稿</a>
+</p>
+<p>&#169;CopyRight 2006-2017 JB51.Net Inc All Rights Reserved. 脚本之家 版权所有</p>
+</div>
+   <div class="gotop hide" id="gotop">   <a href="javascript:;" class="jb51-weixin"></a>  <div class="jb51-weixin-con hide">     <h2 class="jb51-weixin-title">微信扫一扫</h2>    <div class="jb51-weixin-pic"> <img src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/weixin_jb51.gif" alt="脚本之家微信账号" width="100" height="100"> </div>  </div>  <a href="http://shequ.jb51.net/" target="_blank" class="question"><img src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/hot.gif" alt="hot"></a>  <a href="javascript:;" class="go"></a>  </div></div><!--end footer-->
+<link type="text/css" rel="stylesheet" href="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/shCore.css">
+<link type="text/css" rel="Stylesheet" href="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/shThemeDefault.css">
+<script type="text/javascript" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/shCore.js.下载"></script>
+<script type="text/javascript" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/shAutoloader.js.下载"></script>
+<script type="text/javascript">
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+if (top.location != self.location)top.location=self.location;
+$(function(){
+	$('#content').find('img').each(function(){
+        var img = this;
+        if (img.width >= 650){
+            img.style.width = "650px";
+            img.style.height = "auto";
+            //$(img).removeAttr('height');
+            var aTag = document.createElement('a');
+            aTag.href = img.src;
+			aTag.target="_blank";
+            $(aTag).addClass('bPic')
+            .insertAfter(img).append(img)
+          }
+    });
+	$(window).scroll(function()
+    {	
+    	//rFixedBox跟随滚动
+    	var h = $(window).height();
+        var top = $(window).scrollTop();
+    	var rFixedBox = $('.rFixedBox').prev().offset();
+        var fixedTop = rFixedBox.top;
+		
+        if(top>=fixedTop+344)
+        {
+			var h1 = parseInt($('#content').children('.main').height());
+			if(parseInt(top) + 340 < h1){
+				$('.rFixedBox').css({'position':'fixed','top': 0});
+			}else{
+				$('.rFixedBox').css({'position':'absolute','top': h1-510});
+			}
+        }
+        else
+        {
+            $('.rFixedBox').css({'position':'static', 'top':0});   
+        }	
+       /* return true;*/
+    });
+/*$(document).ready(function() {
+  $("#content img").unveil();
+});	*/
+SyntaxHighlighter.autoloader(
+	'applescript			/jslib/syntaxhighlighter/scripts/shBrushAppleScript.js',
+	'actionscript3 as3		/jslib/syntaxhighlighter/scripts/shBrushAS3.js',
+	'bash shell				/jslib/syntaxhighlighter/scripts/shBrushBash.js',
+	'coldfusion cf			/jslib/syntaxhighlighter/scripts/shBrushColdFusion.js',
+	'cpp c					/jslib/syntaxhighlighter/scripts/shBrushCpp.js',
+	'obj-c objc				/jslib/syntaxhighlighter/scripts/shBrushObjC.js',
+	'c# c-sharp csharp		/jslib/syntaxhighlighter/scripts/shBrushCSharp.js',
+	'css					/jslib/syntaxhighlighter/scripts/shBrushCss.js',
+	'delphi pascal			/jslib/syntaxhighlighter/scripts/shBrushDelphi.js',
+	'diff patch pas			/jslib/syntaxhighlighter/scripts/shBrushDiff.js',
+	'erl erlang				/jslib/syntaxhighlighter/scripts/shBrushErlang.js',
+	'groovy					/jslib/syntaxhighlighter/scripts/shBrushGroovy.js',
+	'haxe hx				/jslib/syntaxhighlighter/scripts/shBrushHaxe.js',
+	'java					/jslib/syntaxhighlighter/scripts/shBrushJava.js',
+	'jfx javafx				/jslib/syntaxhighlighter/scripts/shBrushJavaFX.js',
+	'js jscript javascript	/jslib/syntaxhighlighter/scripts/shBrushJScript.js',
+	'perl pl				/jslib/syntaxhighlighter/scripts/shBrushPerl.js',
+	'php					/jslib/syntaxhighlighter/scripts/shBrushPhp.js',
+	'text plain				/jslib/syntaxhighlighter/scripts/shBrushPlain.js',
+	'py python				/jslib/syntaxhighlighter/scripts/shBrushPython.js',
+	'ruby rails ror rb		/jslib/syntaxhighlighter/scripts/shBrushRuby.js',
+	'scala					/jslib/syntaxhighlighter/scripts/shBrushScala.js',
+	'sql					/jslib/syntaxhighlighter/scripts/shBrushSql.js',
+	'vb vbnet				/jslib/syntaxhighlighter/scripts/shBrushVb.js',
+	'ps powershell			/jslib/syntaxhighlighter/scripts/shBrushPowerShell.js',
+	'xml xhtml xslt html	/jslib/syntaxhighlighter/scripts/shBrushXml.js'
+);
+SyntaxHighlighter.all();
+});
+var ourl="http://blog.csdn.net/huilan_same/article/details/52541680";
+</script>
+<script type="text/javascript" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/jbLoader.js.下载"></script>
+<script>jbLoader();</script>
+<script>jbLoader();</script>
+<script>jbLoader();</script>
+<script>jbLoader();</script>
+<script>jbLoader();</script>
+<script>jbLoader();</script>
+<script>jbLoader();</script>
+<script>jbLoader();</script>
+<script>jbLoader();</script>
+<script>jbLoader();</script>
+<script>jbLoader();</script>
+<script>jbLoader();</script>
+<div id="tongji">
+<script type="text/javascript" src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/tongji.js.下载"></script><script src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/i.js.下载" type="text/javascript"></script><script src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/stat.php" language="JavaScript"></script><script src="./Python selenium 父子、兄弟、相邻节点定位方式详解_python_脚本之家_files/stat(1).php" language="JavaScript"></script></div></div></body></html>

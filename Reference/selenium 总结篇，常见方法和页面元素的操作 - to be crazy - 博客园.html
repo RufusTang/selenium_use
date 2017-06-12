@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://www.cnblogs.com/tobecrazy/p/4570494.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/bundle-ThinkInside.css">
+<link type="text/css" rel="stylesheet" href="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/134870.css">
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/bundle-ThinkInside-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/tobecrazy/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/tobecrazy/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/tobecrazy/wlwmanifest.xml">
+<script async="" src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/encoder.js.下载"></script><script src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/jquery.js.下载" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'tobecrazy', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/tobecrazy/"><img id="blogLogo" src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/tobecrazy/">to be crazy</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/tobecrazy/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/to%20be%20crazy">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/tobecrazy/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/tobecrazy/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 143&nbsp; </span>
+<span id="stats_article_count">文章 - 0&nbsp; </span>
+<span id="stats-comment_count">评论 - 161</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/tobecrazy/p/4570494.html">selenium 总结篇，常见方法和页面元素的操作</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p>今天，总结一下selenium怎么操作web页面常见的元素。</p>
+<p>主要有：</p>
+<ul>
+<li>上传</li>
+<li>alter dialog</li>
+<li>prompt&nbsp;dialog</li>
+<li>confirm&nbsp;dialog</li>
+<li>select list</li>
+<li>radio box</li>
+<li>input box</li>
+<li>checkBox</li>
+</ul>
+<p>测试页面如下：</p>
+<p><img src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/132342070197711.png" alt="" width="1008" height="749"></p>
+<div class="cnblogs_code" onclick="cnblogs_code_show(&#39;aa05261b-4913-4848-8e6d-65a64a4264c7&#39;)"><img id="code_img_closed_aa05261b-4913-4848-8e6d-65a64a4264c7" class="code_img_closed" src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/ContractedBlock.gif" alt=""><img id="code_img_opened_aa05261b-4913-4848-8e6d-65a64a4264c7" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide(&#39;aa05261b-4913-4848-8e6d-65a64a4264c7&#39;,event)" src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_aa05261b-4913-4848-8e6d-65a64a4264c7" class="cnblogs_code_hide">
+<pre><span style="color: #008080;">  1</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">  2</span>   <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">  3</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>selenium处理基本页面元素<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">  4</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">style </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/css"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">  5</span> <span style="background-color: #f5f5f5; color: #800000;">    table</span><span style="background-color: #f5f5f5; color: #000000;">{</span><span style="background-color: #f5f5f5; color: #ff0000;">font-size</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">26</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #ff0000;">text-align</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">center</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #ff0000;">width</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">80%</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #ff0000;">border-collapse</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">collapse</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #ff0000;">margin</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">auto</span><span style="background-color: #f5f5f5; color: #000000;">}</span>    
+<span style="color: #008080;">  6</span> <span style="background-color: #f5f5f5; color: #800000;">    table th</span><span style="background-color: #f5f5f5; color: #000000;">{</span><span style="background-color: #f5f5f5; color: #ff0000;">background</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> #aff</span><span style="background-color: #f5f5f5; color: #000000;">}</span>
+<span style="color: #008080;">  7</span> <span style="background-color: #f5f5f5; color: #800000;">    .display</span><span style="background-color: #f5f5f5; color: #000000;">{</span><span style="background-color: #f5f5f5; color: #ff0000;">color</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">red</span><span style="background-color: #f5f5f5; color: #000000;">}</span>
+<span style="color: #008080;">  8</span> <span style="background-color: #f5f5f5; color: #800000;">    .widgetStyle</span><span style="background-color: #f5f5f5; color: #000000;">{</span><span style="background-color: #f5f5f5; color: #ff0000;">text-align</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">left</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #ff0000;">padding-left</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">100px</span><span style="background-color: #f5f5f5; color: #000000;">}</span>    
+<span style="color: #008080;">  9</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">style</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 10</span>      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">= "javascript"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 11</span>             <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> clickbutton(flag)
+</span><span style="color: #008080;"> 12</span> <span style="background-color: #f5f5f5; color: #000000;">            {
+</span><span style="color: #008080;"> 13</span>                 <span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (flag </span><span style="background-color: #f5f5f5; color: #000000;">==</span> <span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">) alert(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">测试alert对话框</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+</span><span style="color: #008080;"> 14</span>                 <span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (flag </span><span style="background-color: #f5f5f5; color: #000000;">==</span> <span style="background-color: #f5f5f5; color: #000000;">2</span><span style="background-color: #f5f5f5; color: #000000;">) 
+</span><span style="color: #008080;"> 15</span> <span style="background-color: #f5f5f5; color: #000000;">        {
+</span><span style="color: #008080;"> 16</span>             <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> name</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">prompt(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">测试prompt对话框</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">);
+</span><span style="color: #008080;"> 17</span>                   <span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (name</span><span style="background-color: #f5f5f5; color: #000000;">!=</span><span style="background-color: #f5f5f5; color: #0000ff;">null</span> <span style="background-color: #f5f5f5; color: #000000;">&amp;&amp;</span><span style="background-color: #f5f5f5; color: #000000;"> name</span><span style="background-color: #f5f5f5; color: #000000;">!=</span><span style="background-color: #f5f5f5; color: #000000;">""</span><span style="background-color: #f5f5f5; color: #000000;">)
+</span><span style="color: #008080;"> 18</span> <span style="background-color: #f5f5f5; color: #000000;">                    {
+</span><span style="color: #008080;"> 19</span>                         <span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">document.write(name);</span>
+<span style="color: #008080;"> 20</span> <span style="background-color: #f5f5f5; color: #000000;">                    alert(name);
+</span><span style="color: #008080;"> 21</span> <span style="background-color: #f5f5f5; color: #000000;">                    }    
+</span><span style="color: #008080;"> 22</span> <span style="background-color: #f5f5f5; color: #000000;">        }
+</span><span style="color: #008080;"> 23</span>                 <span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (flag </span><span style="background-color: #f5f5f5; color: #000000;">==</span> <span style="background-color: #f5f5f5; color: #000000;">3</span><span style="background-color: #f5f5f5; color: #000000;">)
+</span><span style="color: #008080;"> 24</span> <span style="background-color: #f5f5f5; color: #000000;">        {
+</span><span style="color: #008080;"> 25</span>                 <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> r</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">confirm(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">测试confirm对话框</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">, </span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">测试confirm对话框?</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">测试结果：</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">)
+</span><span style="color: #008080;"> 26</span>                   <span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (r</span><span style="background-color: #f5f5f5; color: #000000;">==</span><span style="background-color: #f5f5f5; color: #0000ff;">true</span><span style="background-color: #f5f5f5; color: #000000;">)
+</span><span style="color: #008080;"> 27</span> <span style="background-color: #f5f5f5; color: #000000;">                    {
+</span><span style="color: #008080;"> 28</span>                         <span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">document.write("You pressed OK!")</span>
+<span style="color: #008080;"> 29</span> <span style="background-color: #f5f5f5; color: #000000;">                    alert(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">You pressed OK!</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+</span><span style="color: #008080;"> 30</span> <span style="background-color: #f5f5f5; color: #000000;">                    }
+</span><span style="color: #008080;"> 31</span>                   <span style="background-color: #f5f5f5; color: #0000ff;">else</span>
+<span style="color: #008080;"> 32</span> <span style="background-color: #f5f5f5; color: #000000;">                    {
+</span><span style="color: #008080;"> 33</span>                         <span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">document.write("You pressed Cancel!")</span>
+<span style="color: #008080;"> 34</span> 
+<span style="color: #008080;"> 35</span> <span style="background-color: #f5f5f5; color: #000000;">                    alert(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">You pressed Cancel!</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+</span><span style="color: #008080;"> 36</span> <span style="background-color: #f5f5f5; color: #000000;">                    }
+</span><span style="color: #008080;"> 37</span> <span style="background-color: #f5f5f5; color: #000000;">        }
+</span><span style="color: #008080;"> 38</span>         <span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (flag </span><span style="background-color: #f5f5f5; color: #000000;">==</span> <span style="background-color: #f5f5f5; color: #000000;">4</span><span style="background-color: #f5f5f5; color: #000000;">)
+</span><span style="color: #008080;"> 39</span>              
+<span style="color: #008080;"> 40</span> <span style="background-color: #f5f5f5; color: #000000;">            alert(document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">edit</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">).value);
+</span><span style="color: #008080;"> 41</span>             
+<span style="color: #008080;"> 42</span> 
+<span style="color: #008080;"> 43</span> <span style="background-color: #f5f5f5; color: #000000;">                }
+</span><span style="color: #008080;"> 44</span> 
+<span style="color: #008080;"> 45</span> 
+<span style="color: #008080;"> 46</span> 
+<span style="color: #008080;"> 47</span>  
+<span style="color: #008080;"> 48</span>         <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> getOptions()
+</span><span style="color: #008080;"> 49</span> <span style="background-color: #f5f5f5; color: #000000;">          {
+</span><span style="color: #008080;"> 50</span>               <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> x</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">Selector</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+</span><span style="color: #008080;"> 51</span>               <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> y</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">x.options[x.selectedIndex].text
+</span><span style="color: #008080;"> 52</span>               <span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;"> document.write(y);</span>
+<span style="color: #008080;"> 53</span> <span style="background-color: #f5f5f5; color: #000000;">            alert(y);
+</span><span style="color: #008080;"> 54</span> <span style="background-color: #f5f5f5; color: #000000;">          }
+</span><span style="color: #008080;"> 55</span>         <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 56</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 57</span>     
+<span style="color: #008080;"> 58</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 59</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">center</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 60</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 61</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 62</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 63</span>      
+<span style="color: #008080;"> 64</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="text"</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">="font-size:36;text-align:center"</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">b</span><span style="color: #0000ff;">&gt;</span>seleniun处理基本元素<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">b</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 65</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 66</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">hr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 67</span>         <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 68</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 69</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">table </span><span style="color: #ff0000;">cellpadding</span><span style="color: #0000ff;">="10"</span><span style="color: #ff0000;"> cellspacing</span><span style="color: #0000ff;">="0"</span><span style="color: #ff0000;"> border</span><span style="color: #0000ff;">="2"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 70</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">thead</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 71</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 72</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">th </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">=20% </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="widgetleft"</span><span style="color: #0000ff;">&gt;</span>测试内容<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">th</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 73</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">th </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">=80% </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="widgetStyle"</span><span style="color: #0000ff;">&gt;</span>页面基本元素<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">th</span><span style="color: #0000ff;">&gt;</span>                
+<span style="color: #008080;"> 74</span>             <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 75</span>         <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">thead</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 76</span>             
+<span style="color: #008080;"> 77</span>         
+<span style="color: #008080;"> 78</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 79</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>文件上传<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 80</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="file"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="attach[]"</span>  <span style="color: #0000ff;">/&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 81</span>             <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 82</span>             
+<span style="color: #008080;"> 83</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 84</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>alter对话框<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 85</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;"> 86</span>                     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="button"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="alterbutton"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="测试alter对话框"</span><span style="color: #ff0000;">  onclick </span><span style="color: #0000ff;">= "clickbutton(1);"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;"> 87</span>                 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 88</span>             <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 89</span>             
+<span style="color: #008080;"> 90</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 91</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>prompt对话框<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 92</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;"> 93</span>                     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="button"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="promptbutton"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="测试prompt对话框"</span><span style="color: #ff0000;">  onclick </span><span style="color: #0000ff;">= "clickbutton(2);"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;"> 94</span>                 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 95</span>             <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 96</span>             
+<span style="color: #008080;"> 97</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 98</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>confirm对话框<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 99</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">100</span>                     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="button"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="confirmbutton"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="测试confirm对话框"</span><span style="color: #ff0000;">  onclick </span><span style="color: #0000ff;">= "clickbutton(3);"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">101</span>                 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">102</span>             <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">103</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">104</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>select菜单<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">105</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">106</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">select </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="Selector"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">107</span>                     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="apple"</span><span style="color: #ff0000;"> index</span><span style="color: #0000ff;">="1"</span> <span style="color: #0000ff;">&gt;</span>苹果<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">108</span>                     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="peach"</span><span style="color: #ff0000;">  index</span><span style="color: #0000ff;">="2"</span> <span style="color: #0000ff;">&gt;</span>桃子<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">109</span>                     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="banana"</span><span style="color: #ff0000;"> index</span><span style="color: #0000ff;">="3"</span> <span style="color: #0000ff;">&gt;</span>香蕉<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">110</span>                     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="orange"</span><span style="color: #ff0000;">  index</span><span style="color: #0000ff;">="4"</span><span style="color: #0000ff;">&gt;</span>桔子<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">111</span>                     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="grape"</span><span style="color: #ff0000;">  index</span><span style="color: #0000ff;">="5"</span><span style="color: #0000ff;">&gt;</span>葡萄<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">112</span>                     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="mango"</span><span style="color: #ff0000;">  index</span><span style="color: #0000ff;">="6"</span><span style="color: #0000ff;">&gt;</span>芒果<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">113</span>         <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">select</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">114</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br </span><span style="color: #0000ff;">/&gt;&lt;</span><span style="color: #800000;">br </span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">115</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="button"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="showSelectResult"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="showSelectResult"</span><span style="color: #ff0000;"> onclick</span><span style="color: #0000ff;">="getOptions()"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="选择结果"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">116</span>                 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">117</span>             <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">118</span> 
+<span style="color: #008080;">119</span>           <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">120</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>文本框<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">121</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">122</span>                     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="edit"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="edit"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">=""</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">123</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="button"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="submit"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="submit"</span><span style="color: #ff0000;">  onclick </span><span style="color: #0000ff;">= "clickbutton(4);"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">124</span>                 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">125</span>             <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">126</span> 
+<span style="color: #008080;">127</span>       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">128</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>RadioBox<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">129</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="widgetStyle"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">130</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">131</span> <span style="color: #000000;">        Which is your favourite company? 
+</span><span style="color: #008080;">132</span>         <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">133</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">='radio'  </span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">134</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">='radio' </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="company"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">='Baidu'</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">135</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">span </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="pip"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">span</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">136</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>百度<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">137</span>         <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">138</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">='radio' </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="company"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">='AliBaBa'</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">139</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">span </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="pip"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">span</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">140</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>阿里巴巴<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">141</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">='radio' </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="company"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">='Tencent' </span><span style="color: #ff0000;">checked</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">142</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">span </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="pip"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">span</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">143</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>腾讯<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">144</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">='radio' </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="company"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">='Mi' </span><span style="color: #ff0000;">disabled</span><span style="color: #0000ff;">="true"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">145</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">span </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="pip"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">span</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">146</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>小米<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">147</span>          <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>                        
+<span style="color: #008080;">148</span>          <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">149</span> 
+<span style="color: #008080;">150</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">151</span>          <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>CheckBox<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">152</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="widgetStyle"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">153</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">154</span> <span style="color: #000000;">        In which way do you know about Selenium
+</span><span style="color: #008080;">155</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">156</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">='checkbox'</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">157</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="checkbox"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="checkbox1"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="web"</span><span style="color: #0000ff;">/&gt;&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>网络<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">158</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="checkbox"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="checkbox2"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="training"</span><span style="color: #0000ff;">/&gt;&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>培训<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">159</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="checkbox"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="checkbox3"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="friend"</span><span style="color: #0000ff;">/&gt;&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>朋友介绍<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">160</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="checkbox"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="checkbox4"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="other"</span> <span style="color: #0000ff;">/&gt;&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>其他方式<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">161</span>         <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">162</span>         <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>                        
+<span style="color: #008080;">163</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">164</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">165</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>Select Links<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">166</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">167</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="links"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">168</span>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">select </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="jumpMenu"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="jumpMenu"</span><span style="color: #ff0000;"> onchange</span><span style="color: #0000ff;">="window.open(this.value)"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">169</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">selected</span><span style="color: #0000ff;">="selected"</span><span style="color: #0000ff;">&gt;</span>市县教育局<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">170</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.zzjy.gov.cn/"</span> <span style="color: #0000ff;">&gt;</span>郑州市教育局<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">171</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.kfedu.com.cn/"</span> <span style="color: #0000ff;">&gt;</span>开封教育网<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">172</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.lyenet.org/"</span> <span style="color: #0000ff;">&gt;</span>洛阳市教育局<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">173</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.pdsedu.gov.cn/"</span> <span style="color: #0000ff;">&gt;</span>平顶山教育网<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">174</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.anyangedu.com/"</span> <span style="color: #0000ff;">&gt;</span>安阳教育信息网<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">175</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.hnhbedu.net/"</span> <span style="color: #0000ff;">&gt;</span>鹤壁教育信息网<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">176</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.xxjy.gov.cn/"</span> <span style="color: #0000ff;">&gt;</span>新乡市教育局<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">177</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.jzedu.cn/"</span> <span style="color: #0000ff;">&gt;</span>焦作市教育局<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">178</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.xcsjyw.com/"</span> <span style="color: #0000ff;">&gt;</span>许昌教育网<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">179</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.lhjy.net/"</span> <span style="color: #0000ff;">&gt;</span>漯河教育网<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">180</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.smxjy.cn/"</span> <span style="color: #0000ff;">&gt;</span>三门峡教育信息港<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">181</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.sqedu.gov.cn/"</span> <span style="color: #0000ff;">&gt;</span>商丘市教育局<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">182</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.zkedu.gov.cn/"</span> <span style="color: #0000ff;">&gt;</span>周口市教育局<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">183</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.zmdedu.net/"</span> <span style="color: #0000ff;">&gt;</span>驻马店教育局 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">184</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.nyedu.net/"</span> <span style="color: #0000ff;">&gt;</span>南阳教育局<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">185</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.xinyangedu.gov.cn/"</span> <span style="color: #0000ff;">&gt;</span>信阳市教育局<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">186</span>                 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="http://www.jyedu.org/"</span> <span style="color: #0000ff;">&gt;</span>济源教育网<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">187</span>               <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">select</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">188</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">189</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">190</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">191</span>             <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">table</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">192</span> 
+<span style="color: #008080;">193</span> 
+<span style="color: #008080;">194</span>        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">195</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">196</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">="edit"</span><span style="color: #0000ff;">&gt;</span>转载请注明出处<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">197</span>         <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">br</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">198</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="http://www.cnblogs.com/tobecrazy/"</span> <span style="color: #0000ff;">&gt;</span>Copyright 2015 to be crazy <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">199</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">200</span>     
+<span style="color: #008080;">201</span>         <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">center</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">202</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">203</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p><strong>selenium 最核心的技巧是WebElement的识别和定位</strong></p>
+<p><strong>selenium总共有八种定位方法&nbsp;</strong></p>
+<ol>
+<li>&nbsp;By.id() &nbsp;通过id定位</li>
+<li><span style="line-height: 1.5;">&nbsp;By.name() &nbsp;通过name 定位</span></li>
+<li><span style="line-height: 1.5;">&nbsp;By.xpath() 通过xpath定位</span></li>
+<li><span style="line-height: 1.5;">&nbsp;By.className() 通过className定位</span></li>
+<li><span style="line-height: 1.5;">&nbsp;By.cssSelector() 通过CSS 定位</span></li>
+<li><span style="line-height: 1.5;">&nbsp;By.linkText() 通过linkText</span></li>
+<li><span style="line-height: 1.5;">&nbsp;By.tagName() 通过tagName </span></li>
+<li><span style="line-height: 1.5;">&nbsp;By.partialLinkText() 通过匹到的部分linkText</span></li>
+</ol>
+<p><span style="line-height: 1.5;">目前，使用比较多的是cssSelector和xpath，因为一个页面中Id name className tagName LinkText等比较容易重复&nbsp;</span><span style="line-height: 1.5;">不容易 确定唯一</span></p>
+<p><span style="line-height: 1.5;">接下来会有具体的例子来演示如何定位　&nbsp;</span>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+<p><strong>上传文件</strong></p>
+<p>一般，上传页面如果是input，像这样的，可以使用sendkeys</p>
+<p><img src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/112248171296700.png" alt="" width="773" height="388"></p>
+<p>&nbsp;</p>
+<p>首先，这里使用xpath定位到该元素，然后使用sendKeys即可，sendKeys send你要上传的文件的绝对路径</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> //td/input[@type='file']</pre>
+</div>
+<p>也可以使用cssSelector，关于xpath和cssSelector更多知识，以后会做一些专题</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> td&gt;input[type='file']</pre>
+</div>
+<p>如何验证你写的xptah/cssSelector是正确的呢？</p>
+<p>有以下几种方法：</p>
+<ul>
+<li>F12 ,使用浏览器的console &nbsp;，xpath使用$x() &nbsp;function，css使用 &nbsp; &nbsp;$() function &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/132300203013561.png" alt="" width="688" height="297"></li>
+<li>使用第三方插件firebug</li>
+<li>使用selenium IDE</li>
+</ul>
+<hr>
+<p>&nbsp;</p>
+<p><strong>alert对话框</strong></p>
+<p><strong>&nbsp;细分三种，Alert，prompt，confirm</strong></p>
+<p><strong>&nbsp;Selenium有以下方法：</strong></p>
+<p><strong>&nbsp; &nbsp; &nbsp;</strong></p>
+<div class="cnblogs_code">
+<pre> Alert alert =driver.switchTo().alert();</pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; 1. driver.switchTo().alert(); &nbsp;获取alert</p>
+<p>&nbsp; &nbsp; &nbsp; 2. alert.accept(); 点确定</p>
+<p>&nbsp; &nbsp; &nbsp; 3. alert.dismiss(); 点取消</p>
+<p>&nbsp; &nbsp; &nbsp; 4. alert.getText();获取alert的内容</p>
+<p><strong>&nbsp;</strong></p>
+<p><strong>&nbsp; &nbsp;&nbsp;</strong></p>
+<hr>
+<p>&nbsp;</p>
+<p><strong>select菜单</strong></p>
+<p><strong>&nbsp; &nbsp; select也是比较常见的，selenium封装了以下方法</strong></p>
+<p>&nbsp; &nbsp; 创建select</p>
+<p>&nbsp; &nbsp;</p>
+<div class="cnblogs_code">
+<pre>WebElement selector = driver.findElement(By.id("Selector"<span style="color: #000000;">));
+Select select </span>= <span style="color: #0000ff;">new</span> Select(selector);</pre>
+</div>
+<p>&nbsp; &nbsp;</p>
+<p>选择select的option有以下三种方法</p>
+<ul>
+<li>selectByIndex(int index) 通过index</li>
+<li>selectByVisibleText(String text) 通过匹配到的可见字符</li>
+<li>selectByValue(String value) 通过匹配到标签里的value</li>
+</ul>
+<div class="cnblogs_code">
+<pre>WebElement selector = driver.findElement(By.id("Selector"<span style="color: #000000;">));
+        Select select </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Select(selector);
+        select.selectByIndex(</span>3<span style="color: #000000;">);
+        select.selectByVisibleText(</span>"桃子"<span style="color: #000000;">);
+        select.selectByValue(</span>"apple");</pre>
+</div>
+<hr>
+<p><strong>输入框</strong></p>
+<p>输入框就比较简单了，不再多说</p>
+<p>sendKeys()输入内容</p>
+<p>clear() &nbsp;清空</p>
+<hr>
+<p>&nbsp;</p>
+<p><strong>单选框（RadioBox）</strong></p>
+<p>单选框可以有获取状态，是否被选中</p>
+<div class="cnblogs_code">
+<pre>radioBox.isSelected();</pre>
+</div>
+<p>是否enable</p>
+<div class="cnblogs_code">
+<pre>radioBox.isEnabled()</pre>
+</div>
+<p>使用click方法选中</p>
+<hr>
+<p>&nbsp;</p>
+<p><strong>复选框（checkBox）</strong></p>
+<p>复选框和单选框基本差不多，此处略</p>
+<hr>
+<p>&nbsp;</p>
+<p><strong>超链接</strong></p>
+<p>超链接比较常见，一般都是标签a</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="http://www.cnblogs.com/tobecrazy/"</span> <span style="color: #0000ff;">&gt;</span>Copyright 2015 to be crazy <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>一般使用click方法</p>
+<p>这里我们了解一下浏览器打开超链接时，如果是chrome，点超链接的同时按下Ctrl会打开新标签，按下shift会打开新窗口</p>
+<p>这里单讲一下不同窗口切换.</p>
+<p>selenium有两个关于获取窗口的方法：</p>
+<p>1. driver.getWindowHandle(); &nbsp;返回的是字符串，获取当前窗口的句柄</p>
+<p>2. driver.getWindowHandles(); 返回的是&nbsp;Set&lt;String&gt; ，获取所有窗口</p>
+<p>如果你想在窗口之间切换</p>
+<div class="cnblogs_code">
+<pre>driver.switchTo().window(window);</pre>
+</div>
+<hr>
+<p>小技巧： 如何滚动到你定位的元素</p>
+<p>这里使用java script</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> scroll to mylink</span>
+        JavascriptExecutor scroll =<span style="color: #000000;"> (JavascriptExecutor) driver;
+        scroll.executeScript(</span>"arguments[0].scrollIntoView();", myLink);</pre>
+</div>
+<p>&nbsp;</p>
+<p>接下来是所有测试代码：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> com.packt.webdriver.chapter1;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.List;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.Set;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.concurrent.TimeUnit;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.openqa.selenium.Alert;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.openqa.selenium.By;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.openqa.selenium.JavascriptExecutor;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.openqa.selenium.Keys;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.openqa.selenium.WebDriver;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.openqa.selenium.WebElement;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.openqa.selenium.interactions.Actions;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.openqa.selenium.support.ui.Select;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.testng.Assert;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> com.packt.webdriver.chapter3.DriverFactory;
+
+</span><span style="color: #008000;">/**</span><span style="color: #008000;">
+ * this method is for deal with base web elements
+ * 
+ * </span><span style="color: #808080;">@author</span><span style="color: #008000;"> Young
+ *
+ </span><span style="color: #008000;">*/</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> dealWithElements {
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> main(String[] args) <span style="color: #0000ff;">throws</span><span style="color: #000000;"> Exception {
+        String URL </span>= "file://demo.html"<span style="color: #000000;">;
+        String chromdriver</span>="E:\\chromedriver.exe"<span style="color: #000000;">;
+        System.setProperty(</span>"webdriver.chrome.driver"<span style="color: #000000;">, chromdriver);
+        ChromeOptions options </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ChromeOptions();
+</span><span style="color: #008000;">//</span><span style="color: #008000;">        options.addExtensions(new File(""));</span>
+        DesiredCapabilities capabilities =<span style="color: #000000;"> DesiredCapabilities.chrome();
+        capabilities.setCapability(</span>"chrome.switches"<span style="color: #000000;">,
+                Arrays.asList(</span>"--start-maximized"<span style="color: #000000;">));
+        options.addArguments(</span>"--test-type", "--start-maximized"<span style="color: #000000;">);
+        WebDriver driver</span>=<span style="color: #0000ff;">new</span><span style="color: #000000;"> ChromeDriver(options);
+
+        driver.get(URL);
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> max size the browser</span>
+<span style="color: #000000;">        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(</span>10<span style="color: #000000;">, TimeUnit.SECONDS);
+
+        WebElement upload </span>=<span style="color: #000000;"> driver.findElement(By
+                .xpath(</span>"//td/input[@type='file']"<span style="color: #000000;">));
+        upload.sendKeys(</span>"C:/Users/Young/Desktop/demo.html"<span style="color: #000000;">);
+        Assert.assertTrue(upload.getAttribute(</span>"value").contains("demo"<span style="color: #000000;">));
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> for alert</span>
+        WebElement clickOnAlert =<span style="color: #000000;"> driver.findElement(By
+                .xpath(</span>"//td/input[@name='alterbutton']"<span style="color: #000000;">));
+        clickOnAlert.click();
+        delay(</span>2<span style="color: #000000;">);
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> get alert</span>
+        Alert alert =<span style="color: #000000;"> driver.switchTo().alert();
+        Assert.assertTrue(alert.getText().contains(</span>"alert"<span style="color: #000000;">));
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> click alert ok</span>
+<span style="color: #000000;">        alert.accept();
+
+        delay(</span>2<span style="color: #000000;">);
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> for prompt</span>
+        WebElement clickOnPrompt =<span style="color: #000000;"> driver.findElement(By
+                .xpath(</span>"//td/input[@name='promptbutton']"<span style="color: #000000;">));
+        clickOnPrompt.click();
+        delay(</span>2<span style="color: #000000;">);
+        Alert prompt </span>=<span style="color: #000000;"> driver.switchTo().alert();
+
+        prompt.sendKeys(</span>"I love Selenium"<span style="color: #000000;">);
+        prompt.accept();
+        delay(</span>5<span style="color: #000000;">);
+        Alert afterAccept </span>=<span style="color: #000000;"> driver.switchTo().alert();
+        Assert.assertTrue(afterAccept.getText().contains(</span>"I love Selenium"<span style="color: #000000;">));
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> click alert ok</span>
+<span style="color: #000000;">        afterAccept.accept();
+        delay(</span>2<span style="color: #000000;">);
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> for confirm</span>
+        WebElement clickOnConfirm =<span style="color: #000000;"> driver.findElement(By
+                .xpath(</span>"//td/input[@name='confirmbutton']"<span style="color: #000000;">));
+        clickOnConfirm.click();
+        delay(</span>2<span style="color: #000000;">);
+        Alert confirm </span>=<span style="color: #000000;"> driver.switchTo().alert();
+        confirm.dismiss();
+        delay(</span>2<span style="color: #000000;">);
+        Alert afterDismiss </span>=<span style="color: #000000;"> driver.switchTo().alert();
+        Assert.assertTrue(afterDismiss.getText().contains(</span>"You pressed Cancel"<span style="color: #000000;">));
+        delay(</span>2<span style="color: #000000;">);
+        afterDismiss.accept();
+        driver.manage().timeouts().implicitlyWait(</span>60<span style="color: #000000;">, TimeUnit.SECONDS);
+
+        WebElement selector </span>= driver.findElement(By.id("Selector"<span style="color: #000000;">));
+        Select select </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Select(selector);
+        select.selectByIndex(</span>3<span style="color: #000000;">);
+        select.selectByVisibleText(</span>"桃子"<span style="color: #000000;">);
+        select.selectByValue(</span>"apple"<span style="color: #000000;">);
+
+        System.out.println(select.getAllSelectedOptions().toString());
+        delay(</span>2<span style="color: #000000;">);
+        WebElement showSelectResult </span>=<span style="color: #000000;"> driver.findElement(By
+                .name(</span>"showSelectResult"<span style="color: #000000;">));
+        showSelectResult.click();
+        delay(</span>2<span style="color: #000000;">);
+        Alert yourSelect </span>=<span style="color: #000000;"> driver.switchTo().alert();
+        Assert.assertTrue(yourSelect.getText().contains(</span>"苹果"<span style="color: #000000;">));
+
+        delay(</span>2<span style="color: #000000;">);
+        yourSelect.accept();
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> input box</span>
+        WebElement editBox =<span style="color: #000000;"> driver.findElement(By
+                .xpath(</span>"//td/input[@id='edit']"<span style="color: #000000;">));
+        editBox.sendKeys(</span>"Selenium is good"<span style="color: #000000;">);
+        WebElement submitButton </span>=<span style="color: #000000;"> driver.findElement(By
+                .xpath(</span>"//input[@type='button' and @name='submit']"<span style="color: #000000;">));
+        submitButton.click();
+        delay(</span>2<span style="color: #000000;">);
+        Alert submitAlert </span>=<span style="color: #000000;"> driver.switchTo().alert();
+        Assert.assertEquals(submitAlert.getText(), </span>"Selenium is good"<span style="color: #000000;">);
+        submitAlert.accept();
+        delay(</span>2<span style="color: #000000;">);
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> for radio Box</span>
+<span style="color: #000000;">
+        WebElement duRadioBox </span>=<span style="color: #000000;"> driver.findElement(By
+                .cssSelector(</span>"div#radio&gt;input.Baidu"<span style="color: #000000;">));
+        WebElement aLiRadioBox </span>=<span style="color: #000000;"> driver.findElement(By
+                .cssSelector(</span>"div#radio&gt;input.Alibaba"<span style="color: #000000;">));
+        WebElement TXRadioBox </span>=<span style="color: #000000;"> driver.findElement(By
+                .cssSelector(</span>"div#radio&gt;input.Tencent"<span style="color: #000000;">));
+        WebElement MiRadioBox </span>=<span style="color: #000000;"> driver.findElement(By
+                .cssSelector(</span>"div#radio&gt;input.Mi"<span style="color: #000000;">));
+        delay(</span>2<span style="color: #000000;">);
+        Assert.assertTrue(TXRadioBox.isSelected());
+        Assert.assertTrue(</span>!<span style="color: #000000;">MiRadioBox.isEnabled());
+        delay(</span>2<span style="color: #000000;">);
+        duRadioBox.click();
+        Assert.assertTrue(duRadioBox.isSelected());
+        delay(</span>2<span style="color: #000000;">);
+
+        aLiRadioBox.click();
+        Assert.assertTrue(aLiRadioBox.isSelected());
+        delay(</span>2<span style="color: #000000;">);
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> for checkBox</span>
+<span style="color: #000000;">
+        List</span>&lt;WebElement&gt; webCheckBox =<span style="color: #000000;"> driver.findElements(By
+                .xpath(</span>"//input[@type='checkbox']"<span style="color: #000000;">));
+
+        </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (WebElement e : webCheckBox) {
+            e.click();
+            Assert.assertTrue(e.isSelected());
+            delay(</span>2<span style="color: #000000;">);
+        }
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> for links</span>
+        String defaultWindow =<span style="color: #000000;"> driver.getWindowHandle();
+        WebElement myLink </span>=<span style="color: #000000;"> driver.findElement(By
+                .linkText(</span>"Copyright 2015 to be crazy"<span style="color: #000000;">));
+        delay(</span>3<span style="color: #000000;">);
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> scroll to mylink</span>
+        JavascriptExecutor scroll =<span style="color: #000000;"> (JavascriptExecutor) driver;
+        scroll.executeScript(</span>"arguments[0].scrollIntoView();"<span style="color: #000000;">, myLink);
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> open link in a new windows press shift when you click</span>
+        delay(2<span style="color: #000000;">);
+        Actions actions </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Actions(driver);
+        actions.keyDown(Keys.SHIFT).click(myLink).perform();
+
+        delay(</span>3<span style="color: #000000;">);
+        Set</span>&lt;String&gt; currentWindows =<span style="color: #000000;"> driver.getWindowHandles();
+        System.out.println(currentWindows.size());
+        </span><span style="color: #0000ff;">for</span><span style="color: #000000;"> (String window : currentWindows) {
+            </span><span style="color: #0000ff;">if</span> (!<span style="color: #000000;">window.endsWith(defaultWindow)) {
+                driver </span>=<span style="color: #000000;"> driver.switchTo().window(window);
+                driver.manage().timeouts()
+                        .pageLoadTimeout(</span>60<span style="color: #000000;">, TimeUnit.SECONDS);
+                driver.manage().timeouts().implicitlyWait(</span>60<span style="color: #000000;">, TimeUnit.SECONDS);
+                </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+            }
+        }
+
+        Assert.assertTrue(driver.getCurrentUrl().contains(</span>"tobecrazy"<span style="color: #000000;">));
+        delay(</span>10<span style="color: #000000;">);
+
+        driver.quit();
+    }
+
+    </span><span style="color: #008000;">/**</span><span style="color: #008000;">
+     * </span><span style="color: #808080;">@author</span><span style="color: #008000;"> Young
+     * </span><span style="color: #808080;">@param</span><span style="color: #008000;"> seconds
+     </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> delay(<span style="color: #0000ff;">int</span><span style="color: #000000;"> seconds) {
+        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {
+            Thread.sleep(seconds </span>* 1000<span style="color: #000000;">);
+        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (InterruptedException e) {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> TODO Auto-generated catch block</span>
+<span style="color: #000000;">            e.printStackTrace();
+        }
+    }
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p></div><div id="MySignature" style="display: block;">转载请注明出处：http://www.cnblogs.com/tobecrazy/
+ 
+<br>
+<img src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/418763-20161014225758390-402578379.gif" height="200" width="350">
+<p></p><h1>
+软件测试交流QQ群：312937087
+we are QA!
+</h1><p></p></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/tobecrazy/category/605623.html" target="_blank">selenium</a>,<a href="http://www.cnblogs.com/tobecrazy/category/432328.html" target="_blank">测试</a></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/tobecrazy/tag/selenium%20%E6%B5%8B%E8%AF%95%20%E8%87%AA%E5%8A%A8%E5%8C%96%20%E6%80%BB%E7%BB%93/">selenium 测试 自动化 总结</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(4570494,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;85b194c2-e7b5-e111-aa3f-842b2b196315&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/tobecrazy/" target="_blank"><img src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/20130612235133.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/tobecrazy/">to be crazy</a><br>
+            <a href="http://home.cnblogs.com/u/tobecrazy/followees">关注 - 5</a><br>
+            <a href="http://home.cnblogs.com/u/tobecrazy/followers">粉丝 - 386</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;85b194c2-e7b5-e111-aa3f-842b2b196315&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(4570494,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">5</span>
+    </div>
+    <div class="buryit" onclick="votePost(4570494,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/tobecrazy/p/4573530.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/tobecrazy/p/4573530.html" title="发布于2015-06-13 15:04">测试登录界面</a><br><a href="http://www.cnblogs.com/tobecrazy/p/4575553.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/tobecrazy/p/4575553.html" title="发布于2015-06-14 19:29">博客园计算园龄不正确，请管理员确认</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2015-06-13 23:35</span> <a href="http://www.cnblogs.com/tobecrazy/">to be crazy</a> 阅读(<span id="post_view_count">35287</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=4570494" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/tobecrazy/p/4570494.html#" onclick="AddToWz(4570494);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=134870,cb_entryId=4570494,cb_blogApp=currentBlogApp,cb_blogUserGuid='85b194c2-e7b5-e111-aa3f-842b2b196315',cb_entryCreatedDate='2015/6/13 23:35:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/tobecrazy/p/4570494.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/tobecrazy/p/4570494.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://wijmo.gcpowertools.com.cn/?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=wijmo&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/24442-20170531232714852-1660032846.gif" alt="huozige"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/571299/" target="_blank">库克MIT演讲：不怕电脑像人，只怕人像电脑</a><br> ·  <a href="http://news.cnblogs.com/n/571298/" target="_blank">共享充电宝：40天“吹”来资金12亿 风停之后该怎么办？</a><br> ·  <a href="http://news.cnblogs.com/n/571297/" target="_blank">《王者荣耀》拉动代练业务 月入5万都不算高薪</a><br> ·  <a href="http://news.cnblogs.com/n/571296/" target="_blank">松下高管：共享单车在日本100年也实现不了</a><br> ·  <a href="http://news.cnblogs.com/n/571295/" target="_blank">硅谷也抄袭成风 Instagram创始人：大家互相借鉴</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="https://www.mtyun.com/activity-anniversary?site=cnblogs&amp;campaign=20170601sales" target="_blank"><img width="468" height="60" src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/24442-20170608095106606-2028001864.png" alt="美团云"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/570194/" target="_blank">小printf的故事：真正的程序员？</a><br> ·  <a href="http://kb.cnblogs.com/page/569992/" target="_blank">程序员的工作、学习与绩效</a><br> ·  <a href="http://kb.cnblogs.com/page/569056/" target="_blank">软件开发为什么很难</a><br> ·  <a href="http://kb.cnblogs.com/page/565901/" target="_blank">唱吧DevOps的落地，微服务CI/CD的范本技术解读</a><br> ·  <a href="http://kb.cnblogs.com/page/566523/" target="_blank">程序员，如何从平庸走向理想？</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><br>
+<p>
+</p><h3>
+英文名：Young
+<br>
+个人简介：自动化测试工程师，拥有5年以上软件测试经验，熟练掌握自动化测试框架selenium/appium，熟练掌握java/Python。
+<br>
+博客经常被51testing转载
+</h3>
+<p>
+
+</p>
+
+<br>
+转载请注明出处：<br><a target="_blank" href="http://www.cnblogs.com/tobecrazy/">Create By tobecrazy</a>
+<br>
+Github:<br>
+<a target="_blank" href="https://github.com/tobecrazy/">GitHub
+<br>
+<h2>
+<font color="red">
+软件测试交流QQ群：312937087 we are QA!
+</font></h2><font color="red">
+<img src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/418763-20161014225758390-402578379.gif" height="200" width="350">
+
+<br>
+</font></a><font color="red"><a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=741f3e7a0e52602b39776c716aea944863d1d155764604c188b6e84021eea34f"><img border="0" src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/group.png" alt="SoftWare Testing" title="SoftWare Testing"></a>
+<br>
+
+
+
+<a target="_blank" href="http://www.codecademy.com/">python教程</a>
+<br>
+<font color="red">
+<a target="_blank" href="http://www.toolsqa.com/selenium-webdriver/webelement-commands/">Selenium教程</a>
+<br>
+<br>
+<a style="text-decoration: none" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=HGhzfnl-bn1mZVxtbTJ-c3E"><img src="./selenium 总结篇，常见方法和页面元素的操作 - to be crazy - 博客园_files/ico_mailme_22.png" alt=""></a>
+<br>
+<br>
+<p>
+
+</p>
+
+
+
+<br>
+</font></font><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/tobecrazy/">to be crazy</a><br>园龄：<a href="http://home.cnblogs.com/u/tobecrazy/" title="入园时间：2012-06-14">4年11个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/tobecrazy/followers/">386</a><br>关注：<a href="http://home.cnblogs.com/u/tobecrazy/followees/">5</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;85b194c2-e7b5-e111-aa3f-842b2b196315&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/05/01&#39;);return false;">&lt;</a></td><td align="center">2017年6月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/07/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td align="center">2</td><td class="CalWeekendDay" align="center">3</td></tr><tr><td class="CalWeekendDay" align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td class="CalTodayDay" align="center">10</td></tr><tr><td class="CalWeekendDay" align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td class="CalWeekendDay" align="center">17</td></tr><tr><td class="CalWeekendDay" align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td class="CalWeekendDay" align="center">24</td></tr><tr><td class="CalWeekendDay" align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td class="CalOtherMonthDay" align="center">1</td></tr><tr><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block"></div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/tobecrazy/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/tobecrazy/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/tobecrazy/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/tobecrazy/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/tobecrazy/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_categories">
+<div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+<h3 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(173)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/tobecrazy/category/821353.html">Android(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/tobecrazy/category/699177.html">appium(17)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/tobecrazy/category/512737.html">C#(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/tobecrazy/category/432330.html">C/C++(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/tobecrazy/category/709714.html">fiddler</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/tobecrazy/category/432331.html">Java(36)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/tobecrazy/category/491954.html">linux(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/tobecrazy/category/442478.html">office(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/tobecrazy/category/432329.html">perl(17)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/tobecrazy/category/590646.html">python(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/tobecrazy/category/605623.html">selenium(43)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/tobecrazy/category/536228.html">shell(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="http://www.cnblogs.com/tobecrazy/category/432328.html">测试(29)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="http://www.cnblogs.com/tobecrazy/category/694142.html">框架(10)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_14" href="http://www.cnblogs.com/tobecrazy/category/440170.html">数据库(4)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案<span style="font-size:11px;font-weight:normal">(143)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/tobecrazy/archive/2016/11.html">2016年11月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/tobecrazy/archive/2016/10.html">2016年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/tobecrazy/archive/2016/09.html">2016年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/tobecrazy/archive/2016/08.html">2016年8月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/tobecrazy/archive/2016/06.html">2016年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/tobecrazy/archive/2016/04.html">2016年4月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/tobecrazy/archive/2016/03.html">2016年3月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/tobecrazy/archive/2016/02.html">2016年2月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/tobecrazy/archive/2016/01.html">2016年1月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="http://www.cnblogs.com/tobecrazy/archive/2015/12.html">2015年12月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="http://www.cnblogs.com/tobecrazy/archive/2015/11.html">2015年11月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="http://www.cnblogs.com/tobecrazy/archive/2015/10.html">2015年10月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="http://www.cnblogs.com/tobecrazy/archive/2015/09.html">2015年9月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="http://www.cnblogs.com/tobecrazy/archive/2015/08.html">2015年8月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="http://www.cnblogs.com/tobecrazy/archive/2015/07.html">2015年7月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="http://www.cnblogs.com/tobecrazy/archive/2015/06.html">2015年6月 (14)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="http://www.cnblogs.com/tobecrazy/archive/2015/05.html">2015年5月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="http://www.cnblogs.com/tobecrazy/archive/2015/04.html">2015年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="http://www.cnblogs.com/tobecrazy/archive/2015/01.html">2015年1月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_19" href="http://www.cnblogs.com/tobecrazy/archive/2014/11.html">2014年11月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_20" href="http://www.cnblogs.com/tobecrazy/archive/2014/10.html">2014年10月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_21" href="http://www.cnblogs.com/tobecrazy/archive/2014/09.html">2014年9月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_22" href="http://www.cnblogs.com/tobecrazy/archive/2014/08.html">2014年8月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_23" href="http://www.cnblogs.com/tobecrazy/archive/2014/07.html">2014年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_24" href="http://www.cnblogs.com/tobecrazy/archive/2014/06.html">2014年6月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_25" href="http://www.cnblogs.com/tobecrazy/archive/2014/05.html">2014年5月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_26" href="http://www.cnblogs.com/tobecrazy/archive/2014/04.html">2014年4月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_27" href="http://www.cnblogs.com/tobecrazy/archive/2014/03.html">2014年3月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_28" href="http://www.cnblogs.com/tobecrazy/archive/2014/02.html">2014年2月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_29" href="http://www.cnblogs.com/tobecrazy/archive/2014/01.html">2014年1月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_30" href="http://www.cnblogs.com/tobecrazy/archive/2013/12.html">2013年12月 (12)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_31" href="http://www.cnblogs.com/tobecrazy/archive/2013/11.html">2013年11月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_32" href="http://www.cnblogs.com/tobecrazy/archive/2013/10.html">2013年10月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_33" href="http://www.cnblogs.com/tobecrazy/archive/2013/08.html">2013年8月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_34" href="http://www.cnblogs.com/tobecrazy/archive/2013/07.html">2013年7月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_35" href="http://www.cnblogs.com/tobecrazy/archive/2013/06.html">2013年6月 (12)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_36" href="http://www.cnblogs.com/tobecrazy/archive/2013/05.html">2013年5月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_37" href="http://www.cnblogs.com/tobecrazy/archive/2013/04.html">2013年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_38" href="http://www.cnblogs.com/tobecrazy/archive/2013/03.html">2013年3月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_39" href="http://www.cnblogs.com/tobecrazy/archive/2013/01.html">2013年1月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_40" href="http://www.cnblogs.com/tobecrazy/archive/2012/12.html">2012年12月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_41" href="http://www.cnblogs.com/tobecrazy/archive/2012/11.html">2012年11月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_imagecategory" class="catListImageCategory sidebar-block">
+<h3 class="catListTitle">相册<span style="font-size:11px;font-weight:normal">(1)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="http://www.cnblogs.com/tobecrazy/gallery/432338.html" rel="nofollow">workspace(1)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_test" class="catListtest sidebar-block">
+<h3 class="catListTitle">test</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_3_Link_0" href="http://www.cnblogs.com/tobecrazy/" rel="nofollow">相关链接</a> </li>
+<li class="c_b_p_link_desc">http://www.cnblogs.com/tobecrazy/</li>
+</ul>
+
+</div>
+
+</div><div id="sidebar_scorerank" class="sidebar-block">
+<div class="catListBlogRank">
+<h3 class="catListTitle">积分与排名</h3>
+<ul>
+	<li class="liScore">
+		积分 -	226813
+	</li>
+	<li class="liRank">
+		排名 -	806
+	</li>
+</ul>
+</div>
+
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4691045.html#3711423">1. Re:Webdriver配合Tesseract-OCR 自动识别简单的验证码</a></li>
+        <li class="recent_comment_body">@大大大大大石cmd 不用.exe后面是不是得加 eng 或者chi_simtesseract test.png test -l eng...</li>
+        <li class="recent_comment_author">--明羽与小娜</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4562199.html#3704382">2. Re:appium java 环境搭建</a></li>
+        <li class="recent_comment_body">你好，我查阅了很多信息都没解决这个问题，运行这个demo之后，eclipse控制台报一下错误: A new session could not be created. (Original error:......</li>
+        <li class="recent_comment_author">--dumplingroll</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/5738653.html#3653920">3. Re:selenium 3.0 beta2 初体验</a></li>
+        <li class="recent_comment_body">selenium3.3支持Firefox57，gockodriver版本0.15；</li>
+        <li class="recent_comment_author">--荒兔子的小世界</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4799706.html#3642372">4. Re:selenium测试框架使用xml作为对象库</a></li>
+        <li class="recent_comment_body">写的很好，受教了！</li>
+        <li class="recent_comment_author">--xxs520</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4553444.html#3639456">5. Re:selenium测试框架篇，页面对象和元素对象的管理</a></li>
+        <li class="recent_comment_body">楼主，这个枚举类型，怎么添加啊？this.byType = ByType.xpath;this.byType = ByType.id;，这样可以获取到id和xpath，但是运行id后，就不能运行xpa......</li>
+        <li class="recent_comment_author">--肉松饼罗曼史</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4553444.html#3639449">6. Re:selenium测试框架篇，页面对象和元素对象的管理</a></li>
+        <li class="recent_comment_body">@jackyi7321你的这个构造方法怎么写的啊？我也不知道怎么处理这个枚举。...</li>
+        <li class="recent_comment_author">--肉松饼罗曼史</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/archive/2012/12/18/2824248.html#3633966">7. Re:关于自动化测试的一些思考（一）</a></li>
+        <li class="recent_comment_body">@to be crazy打错一个字:交差测试--&gt;交叉测试...</li>
+        <li class="recent_comment_author">--老李头子</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4395932.html#3633958">8. Re:关于自动化测试的一些思考（三）</a></li>
+        <li class="recent_comment_body">楼主,关于自动化测试的一些思考（二）上的链接弄错了,虽然你的linkText是对的, *3131338.html但是其实际的link却是*2824248.html也就是说:你把 思考（二） 的链接也......</li>
+        <li class="recent_comment_author">--老李头子</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/5873288.html#3633923">9. Re:selenium 常见面试题以及答案（Java版）</a></li>
+        <li class="recent_comment_body">楼主你好,<br>第3题的第二种情况, 有如下报错:<br>UnsupportedCommandException: mouseMoveTo<br>请问该如何解决啊?<br>谢谢!</li>
+        <li class="recent_comment_author">--老李头子</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4970188.html#3627406">10. Re:Appium for iOS setup</a></li>
+        <li class="recent_comment_body">Cannot find module '/usr/local/lib/node_modules/appium/node_modules/sqlite3/lib/binding/node-v14-dar......</li>
+        <li class="recent_comment_author">--皇毅</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4612133.html#3585627">11. Re:appium 滑动</a></li>
+        <li class="recent_comment_body">你好：楼主我在使用swipe的时候出现了错误Exception in thread "main" org.openqa.selenium.WebDriverException: Method has ......</li>
+        <li class="recent_comment_author">--海业</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/5738653.html#3582791">12. Re:selenium 3.0 beta2 初体验</a></li>
+        <li class="recent_comment_body">seleniu 3  兼容哪个版本的Firefox？安装了 就是启动不起来</li>
+        <li class="recent_comment_author">--Rocblue</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4590442.html#3579822">13. Re:testng 教程之使用参数的一些tricks配合使用reportng</a></li>
+        <li class="recent_comment_body">@冰海天使还有需要加:useDefaultListeners="false" 这个吗?这个是eclipse的一个checkbox 点一下就OK了...</li>
+        <li class="recent_comment_author">--to be crazy</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4590442.html#3579098">14. Re:testng 教程之使用参数的一些tricks配合使用reportng</a></li>
+        <li class="recent_comment_body">请问如果要配置在 testng.xml 里面怎么配置呢?是不是配置4的步骤不需要了, 只需要在xml里面加入 就可以了还有需要加:useDefaultListeners="fal......</li>
+        <li class="recent_comment_author">--冰海天使</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4612133.html#3558604">15. Re:appium 滑动</a></li>
+        <li class="recent_comment_body">无法付费，加群，QQ提示，手机日期不对，让校准，其实是对的</li>
+        <li class="recent_comment_author">--东篱雪</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4596214.html#3558098">16. Re:Appium 三种wait方法（appium 学习之改造轮子）</a></li>
+        <li class="recent_comment_body">恩  好像用AndroidDriver替换也可以  就是要到入gson包即可</li>
+        <li class="recent_comment_author">--SunnyLan1990</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4596214.html#3557838">17. Re:Appium 三种wait方法（appium 学习之改造轮子）</a></li>
+        <li class="recent_comment_body">@SunnyLan1990是自己写一个接口...</li>
+        <li class="recent_comment_author">--to be crazy</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/4596214.html#3557676">18. Re:Appium 三种wait方法（appium 学习之改造轮子）</a></li>
+        <li class="recent_comment_body">ExpectedCondition类不能编辑啊 楼主</li>
+        <li class="recent_comment_author">--SunnyLan1990</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/3500010.html#3557643">19. Re:雄关漫道真如铁，而今迈步从头越</a></li>
+        <li class="recent_comment_body">老铁，女友找到没</li>
+        <li class="recent_comment_author">--hyx20160514</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/tobecrazy/p/5167637.html#3557432">20. Re:2016年学习计划</a></li>
+        <li class="recent_comment_body">流弊</li>
+        <li class="recent_comment_author">--hyx20160514</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/tobecrazy/p/4570494.html">1. selenium 总结篇，常见方法和页面元素的操作(35286)</a></li><li><a href="http://www.cnblogs.com/tobecrazy/p/4582173.html">2. testng教程之testng.xml的配置和使用，以及参数传递(22908)</a></li><li><a href="http://www.cnblogs.com/tobecrazy/archive/2013/06/09/3128787.html">3. perl 哈希(hash)学习笔记（一）(21768)</a></li><li><a href="http://www.cnblogs.com/tobecrazy/p/4562199.html">4. appium java 环境搭建(20246)</a></li><li><a href="http://www.cnblogs.com/tobecrazy/p/4579631.html">5. appium 自动化测试之知乎Android客户端(20038)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/tobecrazy/p/3509687.html">1. 支付宝电话面试(22)</a></li><li><a href="http://www.cnblogs.com/tobecrazy/p/4553444.html">2. selenium测试框架篇，页面对象和元素对象的管理(20)</a></li><li><a href="http://www.cnblogs.com/tobecrazy/archive/2012/12/18/2824248.html">3. 关于自动化测试的一些思考（一）(10)</a></li><li><a href="http://www.cnblogs.com/tobecrazy/p/4575553.html">4. 博客园计算园龄不正确，请管理员确认(10)</a></li><li><a href="http://www.cnblogs.com/tobecrazy/p/5092580.html">5. 一个测试人员的2015总结(9)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/tobecrazy/p/4570494.html">1. selenium 总结篇，常见方法和页面元素的操作(5)</a></li><li><a href="http://www.cnblogs.com/tobecrazy/p/5092580.html">2. 一个测试人员的2015总结(4)</a></li><li><a href="http://www.cnblogs.com/tobecrazy/archive/2013/03/13/2958337.html">3. 常用排序算法-冒泡排序(3)</a></li><li><a href="http://www.cnblogs.com/tobecrazy/archive/2013/04/15/3023134.html">4. Junit单元测试学习笔记（一）(3)</a></li><li><a href="http://www.cnblogs.com/tobecrazy/p/4557592.html">5. 在测试框架中使用Log4J 2(3)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2017 to be crazy
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+<!--PageEndHtml Block Begin-->
+
+<!--PageEndHtml Block End-->
+
+
+</body></html>
